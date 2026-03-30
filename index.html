@@ -3,25 +3,53 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Berkay Gündüz — In Progress</title>
-  <meta name="description" content="Berkay Gündüz kişisel sitesi. In Progress. Steam, Spotify, Instagram, X ve GÜNDÜZLER sayfası." />
+  <title>Berkay Gündüz | Personal Site</title>
+  <meta name="description" content="Berkay Gündüz resmi kişisel sitesi." />
   <meta name="theme-color" content="#09070f" />
-  <link rel="icon" type="image/png" href="/assets/favicon.png" />
-  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon.png" />
+  <link rel="shortcut icon" href="/assets/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Berkay Gündüz — In Progress" />
-  <meta property="og:description" content="Minimal personal site. Steam, Spotify, Instagram, X ve GÜNDÜZLER." />
+  <meta property="og:title" content="Berkay Gündüz | Personal Site" />
+  <meta property="og:description" content="Berkay Gündüz resmi kişisel sitesi." />
   <meta property="og:url" content="https://berkaygunduz.com/" />
   <meta property="og:image" content="https://berkaygunduz.com/assets/social-preview.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Berkay Gündüz — In Progress" />
-  <meta name="twitter:description" content="Minimal personal site. Steam, Spotify, Instagram, X ve GÜNDÜZLER." />
+  <meta name="twitter:title" content="Berkay Gündüz | Personal Site" />
+  <meta name="twitter:description" content="Berkay Gündüz resmi kişisel sitesi." />
   <meta name="twitter:image" content="https://berkaygunduz.com/assets/social-preview.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <meta property="og:image:alt" content="Berkay Gündüz Personal Site" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Berkay Gündüz",
+    "alternateName": ["berkaygunduz.com", "Berkay Gündüz Com"],
+    "url": "https://berkaygunduz.com/"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Berkay Gündüz",
+    "alternateName": "berkaygunduz.com",
+    "url": "https://berkaygunduz.com/",
+    "logo": "https://berkaygunduz.com/assets/favicon.png",
+    "sameAs": [
+      "https://steamcommunity.com/id/bg023/",
+      "https://open.spotify.com/user/d5llssfdktavidumud7osj9kg?si=ab05bd3ad8b04107",
+      "https://www.instagram.com/bvrkay/",
+      "https://x.com/berkaysoprano23"
+    ]
+  }
+  </script>
   <style>
     :root{
       --bg:#06060a;
@@ -578,6 +606,7 @@
       flex-shrink:0;
     }
     .social-icon svg{width:22px;height:22px;fill:currentColor}
+    .social-icon img{width:24px;height:24px;object-fit:contain;display:block}
     .social-arrow{
       color:rgba(245,242,255,.58);
       font-size:18px;
@@ -750,8 +779,6 @@
     <section class="section" id="bg" data-nav-id="bg">
       <div class="section__inner teaser">
         <div class="teaser-card">
-          <div class="teaser-card__label">Hover the light</div>
-
           <div class="reveal-card" id="revealCard">
             <h2 class="reveal-base">BG</h2>
             <div class="reveal-overlay">BERKAY GÜNDÜZ</div>
@@ -771,13 +798,11 @@
       <div class="section__inner socials">
         <span class="tag">In Progress</span>
         <h2>Find me</h2>
-        <p>Şimdilik kısa bir giriş. Profillerim burada. GÜNDÜZLER için ayrı sayfa da hazır.</p>
-
         <div class="social-grid">
           <a class="social-link" href="https://steamcommunity.com/id/bg023/" target="_blank" rel="noopener noreferrer" aria-label="Steam profiline git">
             <div class="social-top">
               <div class="social-icon" aria-hidden="true">
-                <svg viewBox="0 0 16 16"><path d="M8 0a8 8 0 1 0 6.96 11.944l-4.272-1.776a2.5 2.5 0 1 0-1.171 1.319l4.12 1.713A7 7 0 1 1 8 1a7 7 0 0 1 0 14H7.5a.5.5 0 0 0 0 1H8a8 8 0 0 0 0-16Zm2.54 4.75a2.79 2.79 0 1 0 0 5.58 2.79 2.79 0 0 0 0-5.58Zm0 1a1.79 1.79 0 1 1 0 3.58 1.79 1.79 0 0 1 0-3.58ZM5.5 10a1.5 1.5 0 1 1-1.06 2.56A1.5 1.5 0 0 1 5.5 10Z"/></svg>
+                <img src="/assets/steam-logo.png" alt="" />
               </div>
               <span class="social-arrow">↗</span>
             </div>
