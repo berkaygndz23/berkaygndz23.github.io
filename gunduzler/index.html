@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GÜNDÜZLER — Ticaret & Turizm</title>
+  <meta name="description" content="GÜNDÜZLER. Ticaret ve turizm tarafını anlatan iki sahnelik alt sayfa." />
+  <meta name="theme-color" content="#0b0b0d" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="GÜNDÜZLER — Ticaret & Turizm" />
+  <meta property="og:description" content="Karayolunda güç. Yolculukta güven." />
+  <meta property="og:url" content="https://berkaygunduz.com/gunduzler/" />
+  <meta property="og:image" content="https://berkaygunduz.com/assets/gunduzler-preview.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="GÜNDÜZLER — Ticaret & Turizm" />
+  <meta name="twitter:description" content="Karayolunda güç. Yolculukta güven." />
+  <meta name="twitter:image" content="https://berkaygunduz.com/assets/gunduzler-preview.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Great+Vibes&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg:#090909;
+      --text:#f7f4ef;
+      --muted:#d4cfc2;
+      --soft:#d8b56f;
+      --soft-2:#f1d49a;
+      --line:rgba(255,255,255,.10);
+      --cursor-x:50vw;
+      --cursor-y:50vh;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--text);
+      background:#070708;
+      font-family:"Inter",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:
+        radial-gradient(520px circle at var(--cursor-x) var(--cursor-y), rgba(235,192,111,.10), transparent 54%);
+      pointer-events:none;
+      z-index:2;
+    }
+
+    .grain{
+      position:fixed;
+      inset:0;
+      opacity:.07;
+      mix-blend-mode:soft-light;
+      background-image: radial-gradient(circle, rgba(255,255,255,.5) .6px, transparent .7px);
+      background-size:13px 13px;
+      pointer-events:none;
+      z-index:1;
+    }
+
+    .cursor-glow{
+      position:fixed;
+      left:0;
+      top:0;
+      width:26px;
+      height:26px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(255,255,255,.9), rgba(235,192,111,.55) 34%, rgba(235,192,111,.12) 64%, transparent 74%);
+      transform:translate(-50%,-50%);
+      pointer-events:none;
+      mix-blend-mode:screen;
+      filter:blur(8px);
+      z-index:99;
+      transition:width .22s ease, height .22s ease, opacity .22s ease;
+    }
+    .cursor-glow.is-hover{width:110px;height:110px}
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    .site-header{
+      position:fixed;
+      inset:18px 18px auto 18px;
+      z-index:20;
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      align-items:flex-start;
+      pointer-events:none;
+    }
+    .back-home,.top-nav,.menu-toggle{pointer-events:auto}
+
+    .back-home{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px 10px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(7,7,9,.52);
+      backdrop-filter:blur(16px);
+      box-shadow:0 18px 40px rgba(0,0,0,.28);
+      transition:transform .24s ease, border-color .24s ease;
+    }
+    .back-home:hover{
+      transform:translateY(-1px);
+      border-color:rgba(241,212,154,.32);
+    }
+    .back-home img{
+      width:34px;
+      height:34px;
+      object-fit:contain;
+    }
+    .back-home svg{width:16px;height:16px;fill:currentColor}
+    .back-home span{
+      font-size:12px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:rgba(247,244,239,.84);
+    }
+
+    .nav-group{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+
+    .menu-toggle{
+      display:none;
+      width:46px;
+      height:46px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(7,7,9,.58);
+      color:var(--text);
+      backdrop-filter:blur(16px);
+      align-items:center;
+      justify-content:center;
+      padding:0;
+      cursor:pointer;
+      box-shadow:0 18px 40px rgba(0,0,0,.28);
+    }
+    .menu-toggle svg{width:18px;height:18px;fill:currentColor}
+
+    .top-nav{
+      display:flex;
+      gap:8px;
+      padding:8px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(7,7,9,.54);
+      backdrop-filter:blur(16px);
+      box-shadow:0 18px 40px rgba(0,0,0,.28);
+    }
+    .top-nav a{
+      padding:11px 14px;
+      font-size:12px;
+      letter-spacing:.2em;
+      text-transform:uppercase;
+      color:rgba(247,244,239,.72);
+      border-radius:999px;
+      transition:background .24s ease, color .24s ease;
+    }
+    .top-nav a:hover,
+    .top-nav a.is-active{
+      background:rgba(241,212,154,.12);
+      color:#fff8ea;
+    }
+
+    .mobile-panel{
+      display:none;
+      position:fixed;
+      inset:82px 18px auto 18px;
+      z-index:19;
+      padding:14px;
+      border-radius:22px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(7,7,9,.92);
+      backdrop-filter:blur(18px);
+      box-shadow:0 18px 40px rgba(0,0,0,.28);
+    }
+    .mobile-panel.is-open{display:grid;gap:10px}
+    .mobile-panel a{
+      font-size:13px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:rgba(247,244,239,.82);
+      padding:12px 14px;
+      border-radius:16px;
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.06);
+    }
+
+    .section{
+      min-height:100vh;
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:110px 26px 70px;
+      overflow:hidden;
+      opacity:.4;
+      filter:blur(16px);
+      transform:translateY(40px) scale(.986);
+      transition:opacity .9s ease, filter .9s ease, transform .9s ease;
+    }
+    .section.is-visible{
+      opacity:1;
+      filter:none;
+      transform:none;
+    }
+
+    .scene{
+      position:relative;
+      width:min(1220px, 100%);
+      min-height:min(78vh, 820px);
+      border-radius:34px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:0 34px 90px rgba(0,0,0,.40);
+      background:#080808;
+    }
+
+    .scene-media,
+    .scene-media::before,
+    .scene-media::after{
+      position:absolute;
+      inset:0;
+      content:"";
+    }
+
+    .scene-media{
+      background-size:cover;
+      background-position:center;
+      transform:scale(1.03);
+      animation: slowDrift 18s ease-in-out infinite alternate;
+      filter:saturate(.94);
+    }
+    .scene-media::before{
+      background:
+        linear-gradient(90deg, rgba(5,5,6,.80) 0%, rgba(5,5,6,.56) 28%, rgba(5,5,6,.26) 50%, rgba(5,5,6,.70) 100%),
+        linear-gradient(180deg, rgba(5,5,6,.08), rgba(5,5,6,.38) 78%, rgba(5,5,6,.72));
+      z-index:1;
+    }
+    .scene-media::after{
+      background:
+        radial-gradient(260px circle at var(--sx, 50%) var(--sy, 50%), rgba(255,255,255,.12), rgba(241,212,154,.10) 16%, transparent 52%);
+      mix-blend-mode:screen;
+      opacity:.96;
+      z-index:2;
+      transition:opacity .18s ease;
+    }
+    @keyframes slowDrift{
+      from{transform:scale(1.03) translate3d(-1.2%,0,0)}
+      to{transform:scale(1.08) translate3d(1.1%,-1%,0)}
+    }
+
+    .scene--trade .scene-media{background-image:url("/assets/trade-main.jpg")}
+    .scene--tour .scene-media{background-image:url("/assets/tour-main.jpg")}
+
+    .ambient-ghost{
+      position:absolute;
+      right:-4%;
+      bottom:-4%;
+      width:min(340px, 34vw);
+      aspect-ratio:3/4;
+      border-radius:26px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:0 20px 50px rgba(0,0,0,.32);
+      opacity:.34;
+      filter:blur(4px) saturate(.92);
+      transform:rotate(-7deg);
+      z-index:1;
+    }
+    .ambient-ghost img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+    .scene--tour .ambient-ghost{
+      right:auto;
+      left:-4%;
+      transform:rotate(6deg);
+    }
+
+    .scene-content{
+      position:relative;
+      z-index:3;
+      width:min(540px, 100%);
+      padding:44px 20px 44px 46px;
+      display:grid;
+      gap:20px;
+    }
+    .scene--tour .scene-content{
+      margin-left:auto;
+      padding:44px 46px 44px 20px;
+      text-align:right;
+      justify-items:end;
+    }
+    .eyebrow{
+      font-size:12px;
+      letter-spacing:.34em;
+      text-transform:uppercase;
+      color:rgba(247,244,239,.62);
+    }
+    .headline{
+      margin:0;
+      font-family:"DM Serif Display", Georgia, serif;
+      font-weight:400;
+      font-size:clamp(48px, 7vw, 102px);
+      line-height:.92;
+      letter-spacing:-.04em;
+      text-transform:uppercase;
+      text-shadow:0 10px 30px rgba(0,0,0,.32);
+    }
+    .body{
+      margin:0;
+      font-size:16px;
+      line-height:1.9;
+      color:rgba(247,244,239,.84);
+      max-width:48ch;
+    }
+    .scene--tour .body{max-width:46ch}
+    .meta-row{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+    .scene--tour .meta-row{justify-content:flex-end}
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:11px 15px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.05);
+      font-size:12px;
+      letter-spacing:.2em;
+      text-transform:uppercase;
+      color:rgba(247,244,239,.86);
+      backdrop-filter:blur(10px);
+    }
+    .chip::before{
+      content:"";
+      width:7px;
+      height:7px;
+      border-radius:50%;
+      background:linear-gradient(180deg, #fff2cc, #d8b56f);
+      box-shadow:0 0 14px rgba(241,212,154,.32);
+    }
+
+    .signature{
+      font-family:"Great Vibes", cursive;
+      font-size:clamp(42px, 5vw, 70px);
+      line-height:1;
+      color:#edc37b;
+      text-shadow:0 0 18px rgba(237,195,123,.18);
+      margin-top:6px;
+    }
+
+    .mini-footer{
+      margin-top:16px;
+      font-size:10px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:rgba(247,244,239,.42);
+    }
+
+    @media (max-width: 980px){
+      body::before{display:none}
+      .top-nav{display:none}
+      .menu-toggle{display:inline-flex}
+      .site-header{inset:16px 16px auto 16px}
+      .section{padding:100px 16px 58px}
+      .scene{min-height:76vh;border-radius:26px}
+      .ambient-ghost{display:none}
+      .scene-content,
+      .scene--tour .scene-content{
+        width:100%;
+        margin:0;
+        padding:28px 18px 34px;
+        text-align:left;
+        justify-items:start;
+      }
+      .scene--tour .meta-row{justify-content:flex-start}
+      .cursor-glow{display:none}
+    }
+
+    @media (max-width: 640px){
+      .back-home span{display:none}
+      .headline{font-size:clamp(46px, 15vw, 78px)}
+      .body{font-size:15px;line-height:1.8}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      *{animation:none !important; transition:none !important}
+    }
+  </style>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="back-home" href="/" aria-label="Ana sayfaya dön">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M11.854 3.646a.5.5 0 0 1 0 .708L8.207 8l3.647 3.646a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0Z"/></svg>
+      <img src="/assets/bg-logo-purple.png" alt="BG logo" />
+      <span>Ana sayfa</span>
+    </a>
+
+    <div class="nav-group">
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobilePanel" aria-label="Menüyü aç">
+        <svg viewBox="0 0 24 24"><path d="M4 7h16v2H4V7Zm0 8h16v2H4v-2Zm0-4h16v2H4v-2Z"/></svg>
+      </button>
+
+      <nav class="top-nav" aria-label="Gündüzler bölüm kısayolları">
+        <a href="#ticaret" data-section-link="ticaret">Ticaret</a>
+        <a href="#turizm" data-section-link="turizm">Turizm</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="mobile-panel" id="mobilePanel">
+    <a href="#ticaret">Ticaret</a>
+    <a href="#turizm">Turizm</a>
+    <a href="/">Ana sayfa</a>
+  </div>
+
+  <main>
+    <section class="section is-visible" id="ticaret" data-nav-id="ticaret">
+      <div class="scene scene--trade spotlight">
+        <div class="scene-media"></div>
+        <div class="ambient-ghost"><img src="/assets/trade-alt.jpg" alt="Gündüzler ticaret detayı" /></div>
+
+        <div class="scene-content">
+          <div class="eyebrow">GÜNDÜZLER</div>
+          <h1 class="headline">Ticaret</h1>
+          <p class="body">Tır filomuzla karayolunda düzenli, güçlü ve sahaya dayalı bir ticaret akışı kuruyoruz. Ağır işi sade bir disiplinle, yolu merkez alarak taşıyoruz.</p>
+          <div class="meta-row">
+            <span class="chip">Taşımacılık</span>
+            <span class="chip">Operasyon</span>
+            <span class="chip">Yol gücü</span>
+          </div>
+          <div class="mini-footer">Cursor hareket ettikçe sahne canlanır.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="turizm" data-nav-id="turizm">
+      <div class="scene scene--tour spotlight">
+        <div class="scene-media"></div>
+        <div class="ambient-ghost"><img src="/assets/tour-alt.jpg" alt="Gündüzler turizm detayı" /></div>
+
+        <div class="scene-content">
+          <div class="eyebrow">GÜNDÜZLER</div>
+          <h2 class="headline">Turizm</h2>
+          <p class="body">Otobüs tarafında ise yolculuğu güven, düzen ve konforla birleştiriyoruz. Aynı ruh, bu kez daha akıcı ve daha misafirperver bir çizgide devam ediyor.</p>
+          <div class="signature">Gündüz</div>
+          <div class="meta-row">
+            <span class="chip">Yolculuk</span>
+            <span class="chip">Konfor</span>
+            <span class="chip">Güven</span>
+          </div>
+          <div class="mini-footer">© GÜNDÜZLER</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const cursorGlow = document.getElementById('cursorGlow');
+    const menuToggle = document.getElementById('menuToggle');
+    const mobilePanel = document.getElementById('mobilePanel');
+    const sections = document.querySelectorAll('.section');
+    const navLinks = document.querySelectorAll('[data-section-link]');
+    const spotlightCards = document.querySelectorAll('.spotlight');
+    const isTouch = window.matchMedia('(pointer: coarse)').matches;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          const id = entry.target.dataset.navId;
+          navLinks.forEach((link) => {
+            link.classList.toggle('is-active', link.dataset.sectionLink === id);
+          });
+        }
+      });
+    }, { threshold: 0.35 });
+
+    sections.forEach((section) => observer.observe(section));
+
+    if (!isTouch) {
+      window.addEventListener('mousemove', (event) => {
+        document.documentElement.style.setProperty('--cursor-x', event.clientX + 'px');
+        document.documentElement.style.setProperty('--cursor-y', event.clientY + 'px');
+        cursorGlow.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
+      });
+
+      document.querySelectorAll('a, button, .spotlight').forEach((item) => {
+        item.addEventListener('mouseenter', () => cursorGlow.classList.add('is-hover'));
+        item.addEventListener('mouseleave', () => cursorGlow.classList.remove('is-hover'));
+      });
+
+      spotlightCards.forEach((card) => {
+        card.addEventListener('mousemove', (event) => {
+          const rect = card.getBoundingClientRect();
+          const x = ((event.clientX - rect.left) / rect.width) * 100;
+          const y = ((event.clientY - rect.top) / rect.height) * 100;
+          card.style.setProperty('--sx', x + '%');
+          card.style.setProperty('--sy', y + '%');
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.setProperty('--sx', '50%');
+          card.style.setProperty('--sy', '50%');
+        });
+      });
+    }
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = mobilePanel.classList.toggle('is-open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    mobilePanel.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        mobilePanel.classList.remove('is-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+</html>
