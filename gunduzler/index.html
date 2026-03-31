@@ -8,6 +8,7 @@
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://berkaygunduz.com/gunduzler/" />
   <meta name="theme-color" content="#0a090c" />
+
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="GÜNDÜZLER" />
   <meta property="og:title" content="GÜNDÜZLER | Ticaret ve Turizm" />
@@ -26,198 +27,32 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&family=Anton&family=Great+Vibes&display=swap" rel="stylesheet" />
   <style>
     :root{--bg:#060608;--text:#f4f1eb;--gold:#edd9ad;--red:#d42d2d;--mx:50%;--my:50%}
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;font-family:'Inter',system-ui,sans-serif;color:var(--text);background:radial-gradient(circle at 8% 10%, rgba(255,214,110,.08), transparent 18%),radial-gradient(circle at 88% 24%, rgba(255,208,108,.05), transparent 16%),linear-gradient(180deg,#080808,#090909 32%,#0a0909 100%);overflow-x:hidden}
-    body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;background:radial-gradient(240px circle at var(--mx) var(--my), rgba(255,222,136,.12), transparent 60%);mix-blend-mode:screen}
-    .logo-home{position:fixed;top:18px;left:18px;z-index:80;display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text);padding:12px 16px;border-radius:20px;background:rgba(10,10,10,.72);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(14px);box-shadow:0 18px 54px rgba(0,0,0,.34);transition:transform .25s ease,border-color .25s ease}
-    .logo-home:hover{transform:translateY(-2px);border-color:rgba(255,219,149,.34)}
-    .logo-home img{width:30px;height:30px;object-fit:contain}
-    .logo-home span{font-size:12px;text-transform:uppercase;letter-spacing:.16em}
-    .nav{position:fixed;top:18px;right:18px;z-index:80;display:flex;gap:8px;align-items:center;padding:8px;border-radius:22px;background:rgba(10,10,10,.72);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(14px);box-shadow:0 18px 60px rgba(0,0,0,.28)}
-    .nav a{text-decoration:none;color:#f2eee6;font-size:12px;letter-spacing:.18em;text-transform:uppercase;padding:11px 14px;border-radius:15px;transition:background .2s ease,color .2s ease}
-    .nav a:hover,.nav a.active{background:rgba(255,255,255,.06);color:#fff}
-    @media(max-width:920px){.nav{left:120px;right:14px;overflow:auto;justify-content:flex-start}.nav a{white-space:nowrap;font-size:11px}.logo-home span{display:none}}
-    .hero{min-height:100svh;display:grid;place-items:center;padding:110px 16px 40px;position:relative;z-index:2}
-    .hero-card{width:min(1220px,100%);min-height:calc(100svh - 150px);border-radius:38px;border:1px solid rgba(255,255,255,.07);overflow:hidden;position:relative;background:linear-gradient(180deg, rgba(0,0,0,.12), rgba(0,0,0,.44)),url('/assets/trade-duo.jpg') center/cover no-repeat;box-shadow:0 38px 110px rgba(0,0,0,.38);display:grid;place-items:center}
-    .hero-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 18% 68%, rgba(255,221,136,.18), transparent 18%),linear-gradient(180deg, rgba(0,0,0,.04), rgba(0,0,0,.40));pointer-events:none}
-    .hero-copy{text-align:center;position:relative;z-index:2;max-width:900px;padding:24px}
-    .hero-kicker{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:#ebdfc5}
-    .hero-copy h1{margin:14px 0 18px;font-family:'DM Serif Display',serif;font-size:clamp(58px,9vw,126px);line-height:.94;font-weight:400}
-    .hero-copy p{margin:0 auto;max-width:760px;font-size:clamp(16px,2vw,22px);line-height:1.7;color:#f0eadf}
-
-    .story{position:relative;z-index:2}
-    .story-panel{position:relative;height:420svh}
-    .sticky{position:sticky;top:0;min-height:100svh;display:grid;place-items:center;overflow:hidden;padding:110px 16px 34px}
-    .scene{width:min(1240px,100%);height:calc(100svh - 150px);min-height:560px;border-radius:38px;overflow:hidden;position:relative;border:1px solid rgba(255,255,255,.07);box-shadow:0 38px 110px rgba(0,0,0,.40);background:#050505}
-    .scene::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.20), rgba(0,0,0,.58));pointer-events:none}
-    .slides{position:absolute;inset:0}
-    .slide{position:absolute;inset:0;opacity:0;transform:scale(1.05);filter:blur(10px);transition:opacity .6s ease, transform .9s ease, filter .9s ease;background-position:center;background-size:cover;background-repeat:no-repeat}
-    .slide.active{opacity:1;transform:scale(1);filter:blur(0)}
-    .trade .slide::before,.tour .slide::before{content:'';position:absolute;inset:0;background:radial-gradient(240px circle at var(--mx) var(--my), rgba(255,235,175,.20), transparent 58%);mix-blend-mode:screen}
-    .overlay{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:28px;align-items:end;height:100%;padding:34px}
-    .content{align-self:start;max-width:760px}
-    .eyebrow{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#f0e3c7;margin-bottom:12px}
-    .title{font-family:'DM Serif Display',serif;font-size:clamp(56px,10vw,136px);line-height:.88;font-weight:400;margin:0 0 18px}
-    .desc{font-size:clamp(18px,2.15vw,22px);line-height:1.72;margin:0;max-width:760px;color:#f3eee5}
-    .chips{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
-    .chip{padding:12px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(14,13,11,.48);font-size:12px;letter-spacing:.18em;text-transform:uppercase;display:inline-flex;align-items:center;gap:10px}
-    .chip::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 18px rgba(255,223,145,.68)}
-    .accent-wrap,.signature-wrap{display:flex;align-items:flex-end;justify-content:flex-end;height:100%}
-    .mhg{font-family:'Anton',sans-serif;font-size:clamp(72px,10vw,150px);line-height:.86;letter-spacing:.08em;color:transparent;background:linear-gradient(180deg,#ff7070 0%,#d42d2d 45%,#8f1010 100%);-webkit-background-clip:text;background-clip:text;position:relative;text-shadow:0 0 18px rgba(212,45,45,.25),0 0 46px rgba(212,45,45,.16);animation:mhgPulse 2.8s ease-in-out infinite}
-    .mhg::after{content:'MHG';position:absolute;inset:0;background:linear-gradient(100deg,transparent 35%,rgba(255,255,255,.75) 49%,transparent 63%);-webkit-background-clip:text;background-clip:text;color:transparent;mix-blend-mode:screen;animation:mhgShine 3.6s linear infinite}
-    @keyframes mhgPulse{0%,100%{transform:scale(1);filter:brightness(1)}50%{transform:scale(1.04);filter:brightness(1.18)}}
-    @keyframes mhgShine{0%{transform:translateX(-160%)}100%{transform:translateX(160%)}}
-
-    .signature-svg{display:block;width:min(260px,38vw);max-width:100%;height:auto;overflow:visible;filter:drop-shadow(0 0 18px rgba(239,192,112,.14));animation:floaty 4.8s ease-in-out infinite}
-    .signature-outline{font-family:'Great Vibes',cursive;font-size:132px;fill:none;stroke:#efc070;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:860;stroke-dashoffset:860}
-    .signature-fill{font-family:'Great Vibes',cursive;font-size:132px;fill:#efc070;opacity:.94}
-    .signature-pen{fill:#fbe4a8;filter:drop-shadow(0 0 6px rgba(251,228,168,.9))}
-    .signature-svg.play .signature-outline{animation:signDraw 2.35s ease forwards}
-    .signature-svg.play .signature-fill{animation:signReveal .7s ease forwards 1.65s}
-    .signature-svg.play .signature-pen{animation:penPulse .22s linear infinite}
-    @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-    @keyframes signDraw{to{stroke-dashoffset:0}}
-    @keyframes signReveal{from{opacity:0}to{opacity:.94}}
-    @keyframes penPulse{0%,100%{opacity:1}50%{opacity:.65}}
-
-    .address{min-height:100svh;display:grid;place-items:center;padding:120px 16px 46px;position:relative;z-index:2}
-    .address-card{width:min(1120px,100%);border-radius:38px;border:1px solid rgba(255,255,255,.07);background:radial-gradient(circle at 18% 20%, rgba(255,214,110,.12), transparent 16%),linear-gradient(180deg, rgba(16,13,10,.85), rgba(8,8,8,.92));box-shadow:0 35px 110px rgba(0,0,0,.34);padding:54px 30px;text-align:center}
-    .address-card h2{margin:0 0 18px;font-family:'DM Serif Display',serif;font-size:clamp(40px,6vw,78px);font-weight:400}
-    .address-card p{margin:0 auto;max-width:820px;font-size:clamp(22px,3.1vw,34px);line-height:1.5;color:#f0eadf}
-    .footer{text-align:center;padding:0 0 32px;color:#8f8576;font-size:12px;letter-spacing:.16em;text-transform:uppercase;position:relative;z-index:2}
-    @media(max-width:980px){.overlay{grid-template-columns:1fr;align-items:start}.accent-wrap,.signature-wrap{justify-content:flex-start}.scene{height:auto;min-height:calc(100svh - 150px)}.title{font-size:clamp(52px,16vw,110px)}}
-    @media(max-width:680px){.hero-card,.scene,.address-card{border-radius:30px}.hero-copy{padding:16px}.overlay{padding:22px}.desc{font-size:18px}.chips{gap:10px}.chip{font-size:11px;padding:11px 16px}.address-card p{font-size:22px}}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:'Inter',system-ui,sans-serif;color:var(--text);background:radial-gradient(circle at 8% 10%, rgba(255,214,110,.08), transparent 18%),radial-gradient(circle at 88% 24%, rgba(255,208,108,.05), transparent 16%),linear-gradient(180deg,#080808,#090909 32%,#0a0909 100%);overflow-x:hidden}
+    body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;background:radial-gradient(240px circle at var(--mx) var(--my), rgba(255,222,136,.12), transparent 60%);mix-blend-mode:screen}.logo-home{position:fixed;top:18px;left:18px;z-index:80;display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text);padding:12px 16px;border-radius:20px;background:rgba(10,10,10,.72);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(14px);box-shadow:0 18px 54px rgba(0,0,0,.34);transition:transform .25s ease,border-color .25s ease}.logo-home:hover{transform:translateY(-2px);border-color:rgba(255,219,149,.34)}.logo-home img{width:30px;height:30px;object-fit:contain}.logo-home span{font-size:12px;text-transform:uppercase;letter-spacing:.16em}.nav{position:fixed;top:18px;right:18px;z-index:80;display:flex;gap:8px;align-items:center;padding:8px;border-radius:22px;background:rgba(10,10,10,.72);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(14px);box-shadow:0 18px 60px rgba(0,0,0,.28)}.nav a{text-decoration:none;color:#f2eee6;font-size:12px;letter-spacing:.18em;text-transform:uppercase;padding:11px 14px;border-radius:15px;transition:background .2s ease,color .2s ease}.nav a:hover,.nav a.active{background:rgba(255,255,255,.06);color:#fff}@media(max-width:920px){.nav{left:120px;right:14px;overflow:auto;justify-content:flex-start}.nav a{white-space:nowrap;font-size:11px}.logo-home span{display:none}}
+    .hero{min-height:100svh;display:grid;place-items:center;padding:110px 16px 40px;position:relative;z-index:2}.hero-card{width:min(1220px,100%);min-height:calc(100svh - 150px);border-radius:38px;border:1px solid rgba(255,255,255,.07);overflow:hidden;position:relative;background:linear-gradient(180deg, rgba(0,0,0,.12), rgba(0,0,0,.44)),url('/assets/trade-duo.jpg') center/cover no-repeat;box-shadow:0 38px 110px rgba(0,0,0,.38);display:grid;place-items:center}.hero-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 18% 68%, rgba(255,221,136,.18), transparent 18%),linear-gradient(180deg, rgba(0,0,0,.04), rgba(0,0,0,.40));pointer-events:none}.hero-copy{text-align:center;position:relative;z-index:2;max-width:900px;padding:24px}.hero-kicker{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:#ebdfc5}.hero-copy h1{margin:14px 0 18px;font-family:'DM Serif Display',serif;font-size:clamp(58px,9vw,126px);line-height:.94;font-weight:400}.hero-copy p{margin:0 auto;max-width:760px;font-size:clamp(16px,2vw,22px);line-height:1.7;color:#f0eadf}
+    .story{position:relative;z-index:2}.story-panel{position:relative;height:420svh}.story-panel.tour{height:420svh}.sticky{position:sticky;top:0;min-height:100svh;display:grid;place-items:center;overflow:hidden;padding:110px 16px 34px}.scene{width:min(1240px,100%);height:calc(100svh - 150px);min-height:560px;border-radius:38px;overflow:hidden;position:relative;border:1px solid rgba(255,255,255,.07);box-shadow:0 38px 110px rgba(0,0,0,.40);background:#050505}.scene::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.20), rgba(0,0,0,.58));pointer-events:none}.slides{position:absolute;inset:0}.slide{position:absolute;inset:0;opacity:0;transform:scale(1.05);filter:blur(10px);transition:opacity .6s ease, transform .9s ease, filter .9s ease;background-position:center;background-size:cover;background-repeat:no-repeat}.slide.active{opacity:1;transform:scale(1);filter:blur(0)}.trade .slide::before,.tour .slide::before{content:'';position:absolute;inset:0;background:radial-gradient(240px circle at var(--mx) var(--my), rgba(255,235,175,.20), transparent 58%);mix-blend-mode:screen}
+    .overlay{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:28px;align-items:end;height:100%;padding:34px}.content{align-self:start;max-width:760px}.eyebrow{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#f0e3c7;margin-bottom:12px}.title{font-family:'DM Serif Display',serif;font-size:clamp(56px,10vw,136px);line-height:.88;font-weight:400;margin:0 0 18px}.desc{font-size:clamp(18px,2.15vw,22px);line-height:1.72;margin:0;max-width:760px;color:#f3eee5}.chips{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.chip{padding:12px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(14,13,11,.48);font-size:12px;letter-spacing:.18em;text-transform:uppercase;display:inline-flex;align-items:center;gap:10px}.chip::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 18px rgba(255,223,145,.68)}
+    .accent-wrap,.signature-wrap{display:flex;align-items:flex-end;justify-content:flex-end;height:100%}.mhg{font-family:'Anton',sans-serif;font-size:clamp(72px,10vw,150px);line-height:.86;letter-spacing:.08em;color:transparent;background:linear-gradient(180deg,#ff7070 0%,#d42d2d 45%,#8f1010 100%);-webkit-background-clip:text;background-clip:text;position:relative;text-shadow:0 0 18px rgba(212,45,45,.25),0 0 46px rgba(212,45,45,.16);animation:mhgPulse 2.8s ease-in-out infinite}.mhg::after{content:'MHG';position:absolute;inset:0;background:linear-gradient(100deg,transparent 35%,rgba(255,255,255,.75) 49%,transparent 63%);-webkit-background-clip:text;background-clip:text;color:transparent;mix-blend-mode:screen;animation:mhgShine 3.6s linear infinite}.signature-svg{display:block;width:min(260px,38vw);max-width:100%;height:auto;overflow:visible;filter:drop-shadow(0 0 18px rgba(239,192,112,.14));animation:floaty 4.8s ease-in-out infinite}.signature-svg text{font-family:'Great Vibes',cursive;font-size:132px;paint-order:stroke fill;stroke:#efc070;stroke-width:2.8;fill:transparent;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:900;stroke-dashoffset:900;animation:signDraw 2.2s ease forwards,signGlow 4.8s ease-in-out infinite 2.2s}.signature-svg .fill{fill:#efc070;opacity:0;stroke:none;animation:signFill .55s ease forwards 1.7s,signGlowFill 4.8s ease-in-out infinite 2.2s}@keyframes mhgPulse{0%,100%{transform:scale(1);filter:brightness(1)}50%{transform:scale(1.04);filter:brightness(1.18)}}@keyframes mhgShine{0%{transform:translateX(-160%)}100%{transform:translateX(160%)}}@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}@keyframes signDraw{to{stroke-dashoffset:0}}@keyframes signFill{to{opacity:1}}@keyframes signGlow{0%,100%{filter:drop-shadow(0 0 0 rgba(239,192,112,0))}50%{filter:drop-shadow(0 0 12px rgba(239,192,112,.24))}}@keyframes signGlowFill{0%,100%{opacity:1}50%{opacity:.92}}
+    .address{min-height:100svh;display:grid;place-items:center;padding:120px 16px 46px;position:relative;z-index:2}.address-card{width:min(1120px,100%);border-radius:38px;border:1px solid rgba(255,255,255,.07);background:radial-gradient(circle at 18% 20%, rgba(255,214,110,.12), transparent 16%),linear-gradient(180deg, rgba(16,13,10,.85), rgba(8,8,8,.92));box-shadow:0 35px 110px rgba(0,0,0,.34);padding:54px 30px;text-align:center}.address-card h2{margin:0 0 18px;font-family:'DM Serif Display',serif;font-size:clamp(40px,6vw,78px);font-weight:400}.address-card p{margin:0 auto;max-width:820px;font-size:clamp(22px,3.1vw,34px);line-height:1.5;color:#f0eadf}.footer{text-align:center;padding:0 0 32px;color:#8f8576;font-size:12px;letter-spacing:.16em;text-transform:uppercase;position:relative;z-index:2}
+    @media(max-width:980px){.overlay{grid-template-columns:1fr;align-items:start}.accent-wrap,.signature-wrap{justify-content:flex-start}.scene{height:auto;min-height:calc(100svh - 150px)}.title{font-size:clamp(52px,16vw,110px)}}@media(max-width:680px){.hero-card,.scene,.address-card{border-radius:30px}.hero-copy{padding:16px}.overlay{padding:22px}.desc{font-size:18px}.chips{gap:10px}.chip{font-size:11px;padding:11px 16px}.signature-img{width:160px}.address-card p{font-size:22px}}
   </style>
 </head>
 <body>
   <a class="logo-home" href="/" aria-label="Ana sayfa"><img src="/assets/bg-logo-full.png" alt="BG logo" /><span>Ana Sayfa</span></a>
   <nav class="nav" aria-label="GÜNDÜZLER menüsü"><a href="/">Berkay</a><a href="#ticaret">Ticaret</a><a href="#turizm">Turizm</a><a href="#adres">Adres</a></nav>
-
   <main>
-    <section class="hero">
-      <div class="hero-card">
-        <div class="hero-copy">
-          <div class="hero-kicker">GÜNDÜZLER</div>
-          <h1>Yol, Operasyon,<br>Ulaşım</h1>
-          <p>Aynı yapının iki güçlü yüzü: karayolunda ticaret akışı ve yolculukta düzenli turizm hareketi.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="ticaret" class="story">
-      <div class="story-panel trade">
-        <div class="sticky">
-          <div class="scene">
-            <div class="slides">
-              <div class="slide active" style="background-image:url('/assets/trade-duo.jpg')"></div>
-              <div class="slide" style="background-image:url('/assets/truck-yellow.jpg')"></div>
-              <div class="slide" style="background-image:url('/assets/trade-white-red.jpg')"></div>
-              <div class="slide" style="background-image:url('/assets/trade-lineup.jpg')"></div>
-              <div class="slide" style="background-image:url('/assets/trade-night.jpg')"></div>
-            </div>
-            <div class="overlay">
-              <div class="content">
-                <div class="eyebrow">GÜNDÜZLER</div>
-                <h2 class="title">TİCARET</h2>
-                <p class="desc">Tır filomuzla karayolunda düzenli, güçlü ve sahaya dayalı bir sebze ticareti akışı kuruyoruz. Ağır işi sade bir disiplinle, yolu merkez alarak taşıyoruz.</p>
-                <div class="chips"><div class="chip">Taşımacılık</div><div class="chip">Operasyon</div><div class="chip">Yol Gücü</div></div>
-              </div>
-              <div class="accent-wrap"><div class="mhg">MHG</div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="turizm" class="story">
-      <div class="story-panel tour">
-        <div class="sticky">
-          <div class="scene">
-            <div class="slides">
-              <div class="slide active" style="background-image:url('/assets/tour-main.jpg')"></div>
-              <div class="slide" style="background-image:url('/assets/tour-rear.jpg')"></div>
-              <div class="slide" style="background-image:url('/assets/tour-mix-1.jpg')"></div>
-              <div class="slide" style="background-image:url('/assets/tour-mix-2.jpg')"></div>
-              <div class="slide" style="background-image:url('/assets/tour-detail.jpg')"></div>
-            </div>
-            <div class="overlay">
-              <div class="content">
-                <div class="eyebrow">GÜNDÜZLER</div>
-                <h2 class="title">TURİZM</h2>
-                <p class="desc">Otobüs tarafında ise yolculuğu güven, düzen ve konforla birleştiriyoruz. Aynı ruh, bu kez daha akıcı ve daha misafirperver bir çizgide devam ediyor.</p>
-                <div class="chips"><div class="chip">Yolculuk</div><div class="chip">Konfor</div><div class="chip">Güven</div></div>
-              </div>
-              <div class="signature-wrap">
-                <svg class="signature-svg" id="signatureSvg" viewBox="0 0 620 170" aria-label="Gündüz imzası" role="img">
-                  <defs>
-                    <clipPath id="signClip"><rect id="signClipRect" x="0" y="0" width="0" height="170">
-                      <animate id="signClipAnim" attributeName="width" from="0" to="620" dur="2.25s" begin="indefinite" fill="freeze"/>
-                    </rect></clipPath>
-                  </defs>
-                  <text class="signature-outline" x="8" y="126">Gündüz</text>
-                  <text class="signature-fill" x="8" y="126" clip-path="url(#signClip)">Gündüz</text>
-                  <circle class="signature-pen" cx="12" cy="116" r="5.5" opacity="0">
-                    <animate id="signPenX" attributeName="cx" from="12" to="590" dur="2.25s" begin="indefinite" fill="freeze"/>
-                    <animate id="signPenOpacityIn" attributeName="opacity" values="0;1;1;0" keyTimes="0;0.03;0.95;1" dur="2.25s" begin="indefinite" fill="freeze"/>
-                  </circle>
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="adres" class="address">
-      <div class="address-card"><h2>Adres</h2><p>Elazığ Yeni Sebze Hali / Gündüzler Komisyonevi No: 56-57</p></div>
-    </section>
-
+    <section class="hero"><div class="hero-card"><div class="hero-copy"><div class="hero-kicker">GÜNDÜZLER</div><h1>Yol, Operasyon,<br>Ulaşım</h1><p>Aynı yapının iki güçlü yüzü: karayolunda ticaret akışı ve yolculukta düzenli turizm hareketi.</p></div></div></section>
+    <section id="ticaret" class="story"><div class="story-panel trade" data-frames="5"><div class="sticky"><div class="scene"><div class="slides"><div class="slide active" style="background-image:url('/assets/trade-duo.jpg')"></div><div class="slide" style="background-image:url('/assets/truck-yellow.jpg')"></div><div class="slide" style="background-image:url('/assets/trade-white-red.jpg')"></div><div class="slide" style="background-image:url('/assets/trade-lineup.jpg')"></div><div class="slide" style="background-image:url('/assets/trade-night.jpg')"></div></div><div class="overlay"><div class="content"><div class="eyebrow">GÜNDÜZLER</div><h2 class="title">TİCARET</h2><p class="desc">Tır filomuzla karayolunda düzenli, güçlü ve sahaya dayalı bir sebze ticareti akışı kuruyoruz. Ağır işi sade bir disiplinle, yolu merkez alarak taşıyoruz.</p><div class="chips"><div class="chip">Taşımacılık</div><div class="chip">Operasyon</div><div class="chip">Yol Gücü</div></div></div><div class="accent-wrap"><div class="mhg">MHG</div></div></div></div></div></div></section>
+    <section id="turizm" class="story"><div class="story-panel tour" data-frames="5"><div class="sticky"><div class="scene"><div class="slides"><div class="slide active" style="background-image:url('/assets/tour-main.jpg')"></div><div class="slide" style="background-image:url('/assets/tour-rear.jpg')"></div><div class="slide" style="background-image:url('/assets/tour-mix-1.jpg')"></div><div class="slide" style="background-image:url('/assets/tour-mix-2.jpg')"></div><div class="slide" style="background-image:url('/assets/tour-detail.jpg')"></div></div><div class="overlay"><div class="content"><div class="eyebrow">GÜNDÜZLER</div><h2 class="title">TURİZM</h2><p class="desc">Otobüs tarafında ise yolculuğu güven, düzen ve konforla birleştiriyoruz. Aynı ruh, bu kez daha akıcı ve daha misafirperver bir çizgide devam ediyor.</p><div class="chips"><div class="chip">Yolculuk</div><div class="chip">Konfor</div><div class="chip">Güven</div></div></div><div class="signature-wrap"><svg class="signature-svg" viewBox="0 0 620 170" aria-label="Gündüz imzası" role="img"><text x="8" y="126">Gündüz</text><text class="fill" x="8" y="126">Gündüz</text></svg></div></div></div></div></div></section>
+    <section id="adres" class="address"><div class="address-card"><h2>Adres</h2><p>Elazığ Yeni Sebze Hali / Gündüzler Komisyonevi No: 56-57</p></div></section>
     <div class="footer">© GÜNDÜZLER</div>
   </main>
-
   <script>
-    const setMouse=e=>{const x=e.clientX/window.innerWidth*100;const y=e.clientY/window.innerHeight*100;document.body.style.setProperty('--mx',x+'%');document.body.style.setProperty('--my',y+'%')};
-    window.addEventListener('pointermove',setMouse,{passive:true});
+    const setMouse=e=>{const x=e.clientX/window.innerWidth*100;const y=e.clientY/window.innerHeight*100;document.body.style.setProperty('--mx',x+'%');document.body.style.setProperty('--my',y+'%')};window.addEventListener('pointermove',setMouse,{passive:true});
     document.querySelectorAll('.nav a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'})}));
-    const navLinks=[...document.querySelectorAll('.nav a[href^="#"]')];
-    const sections=['ticaret','turizm','adres'].map(id=>document.getElementById(id));
-    const obs=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){navLinks.forEach(link=>link.classList.toggle('active',link.getAttribute('href')==='#'+entry.target.id))}})},{threshold:.45});
-    sections.forEach(s=>obs.observe(s));
-    function updateStory(section){
-      const rect=section.getBoundingClientRect();
-      const total=section.offsetHeight-window.innerHeight;
-      const progress=Math.min(0.999,Math.max(0,(-rect.top)/Math.max(1,total)));
-      const slides=[...section.querySelectorAll('.slide')];
-      const idx=Math.min(slides.length-1,Math.floor(progress*slides.length));
-      slides.forEach((slide,i)=>slide.classList.toggle('active',i===idx));
-    }
-    const stories=[...document.querySelectorAll('.story-panel')];
-    function onScroll(){stories.forEach(updateStory)}
-    window.addEventListener('scroll',onScroll,{passive:true});
-    window.addEventListener('resize',onScroll);
-    onScroll();
-
-    const signatureSection=document.getElementById('turizm');
-    const signatureSvg=document.getElementById('signatureSvg');
-    const signClipAnim=document.getElementById('signClipAnim');
-    const signPenX=document.getElementById('signPenX');
-    const signPenOpacityIn=document.getElementById('signPenOpacityIn');
-    let signaturePlayed=false;
-    const signObserver=new IntersectionObserver(entries=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting && !signaturePlayed){
-          signaturePlayed=true;
-          signatureSvg.classList.remove('play');
-          void signatureSvg.offsetWidth;
-          signatureSvg.classList.add('play');
-          signClipAnim.beginElement();
-          signPenX.beginElement();
-          signPenOpacityIn.beginElement();
-        }
-      });
-    },{threshold:.55});
-    signObserver.observe(signatureSection);
+    const navLinks=[...document.querySelectorAll('.nav a[href^="#"]')];const sections=['ticaret','turizm','adres'].map(id=>document.getElementById(id));const obs=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){navLinks.forEach(link=>link.classList.toggle('active',link.getAttribute('href')==='#'+entry.target.id))}})},{threshold:.45});sections.forEach(s=>obs.observe(s));
+    function updateStory(section){const rect=section.getBoundingClientRect();const total=section.offsetHeight-window.innerHeight;const progress=Math.min(0.999,Math.max(0,(-rect.top)/total));const slides=[...section.querySelectorAll('.slide')];const idx=Math.min(slides.length-1,Math.floor(progress*slides.length));slides.forEach((slide,i)=>slide.classList.toggle('active',i===idx))}
+    const stories=[...document.querySelectorAll('.story-panel')];function onScroll(){stories.forEach(updateStory)}window.addEventListener('scroll',onScroll,{passive:true});window.addEventListener('resize',onScroll);onScroll();
   </script>
 </body>
 </html>
