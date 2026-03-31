@@ -12,7 +12,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Berkay Gündüz" />
   <meta property="og:title" content="Berkay Gündüz | Personal Site" />
-  <meta property="og:description" content="Berkay Gündüz kişisel sitesi ve GÜNDÜZLER sayfası." />
+  <meta property="og:description" content="Berkay Gündüz kişisel sitesi ve GÜNDÜZLER." />
   <meta property="og:url" content="https://berkaygunduz.com/" />
   <meta property="og:image" content="https://berkaygunduz.com/assets/social-preview.jpg" />
 
@@ -243,16 +243,25 @@
     .scene-progress span::after{content:''; position:absolute; inset:0; background:linear-gradient(90deg,#7b4cff,#c8b2ff); transform:scaleX(0); transform-origin:left; transition:transform .35s ease}
     .scene-progress span.active::after{transform:scaleX(1)}
 
-    .scroll-hint{
+    .scroll-arrow{
       position:absolute;
       right:26px;
-      bottom:26px;
+      bottom:22px;
       z-index:6;
-      font-size:11px;
-      letter-spacing:.28em;
-      text-transform:uppercase;
-      color:#aaa3c1;
-      opacity:.8;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      opacity:.95;
+      animation:arrowFloat 1.8s ease-in-out infinite;
+    }
+    .scroll-arrow svg{
+      display:block;
+      filter:drop-shadow(0 0 12px rgba(200,167,255,.35));
+    }
+    @keyframes arrowFloat{
+      0%{transform:translateY(0);opacity:.72}
+      50%{transform:translateY(8px);opacity:1}
+      100%{transform:translateY(0);opacity:.72}
     }
 
     .gunduzler-gate{
@@ -304,7 +313,7 @@
       .links-head h2{font-size:56px}
       .footer{font-size:10px; letter-spacing:.12em}
       .scene-progress span{width:32px}
-      .scroll-hint{display:none}
+      .scroll-arrow{display:none}
       .welcome-copy p{font-size:36px}
     }
   </style>
@@ -337,8 +346,8 @@
 
         <div class="scene" data-scene="1" id="scene-welcome">
           <div class="welcome-copy">
-            <p>Kişisel websiteme hoşgeldiniz.</p>
-            <span>Devam etmek için kaydır.</span>
+            <p>Kişisel websiteme hoşgeldin.</p>
+            <span>Devam etmek için kaydır</span>
           </div>
         </div>
 
@@ -381,7 +390,11 @@
           <span></span>
           <span></span>
         </div>
-        <div class="scroll-hint">Scroll</div>
+        <div class="scroll-arrow" aria-hidden="true">
+          <svg width="28" height="18" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 6L16 15L26 6" stroke="#c8a7ff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
       </div>
     </section>
 
