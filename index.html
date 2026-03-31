@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Berkay Gündüz | Personal Site</title>
-  <meta name="description" content="Berkay Gündüz kişisel sitesi ve GÜNDÜZLER." />
+  <title>Berkay Gündüz | Kişisel Website</title>
+  <meta name="description" content="Berkay Gündüz'ün resmi kişisel websitesi. İletişim bağlantıları ve GÜNDÜZLER." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://berkaygunduz.com/" />
   <meta name="theme-color" content="#070710" />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Berkay Gündüz" />
-  <meta property="og:title" content="Berkay Gündüz | Personal Site" />
-  <meta property="og:description" content="Berkay Gündüz kişisel sitesi ve GÜNDÜZLER." />
+  <meta property="og:title" content="Berkay Gündüz | Kişisel Website" />
+  <meta property="og:description" content="Berkay Gündüz'ün resmi kişisel websitesi. İletişim bağlantıları ve GÜNDÜZLER." />
   <meta property="og:url" content="https://berkaygunduz.com/" />
   <meta property="og:image" content="https://berkaygunduz.com/assets/social-preview.jpg" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Berkay Gündüz | Personal Site" />
-  <meta name="twitter:description" content="Berkay Gündüz kişisel sitesi ve GÜNDÜZLER." />
+  <meta name="twitter:title" content="Berkay Gündüz | Kişisel Website" />
+  <meta name="twitter:description" content="Berkay Gündüz'ün resmi kişisel websitesi. İletişim bağlantıları ve GÜNDÜZLER." />
   <meta name="twitter:image" content="https://berkaygunduz.com/assets/social-preview.jpg" />
 
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
@@ -135,6 +135,8 @@
       box-shadow:0 35px 100px rgba(0,0,0,.35);
       background:linear-gradient(180deg, rgba(10,9,18,.58), rgba(7,7,13,.48));
       position:relative;
+      touch-action:none;
+      overscroll-behavior:contain;
     }
     .intro-shell::before{
       content:'';
@@ -192,11 +194,15 @@
       position:relative;
       display:grid;
       place-items:center;
-      min-height:280px;
-      width:min(100%,850px);
+      min-height:320px;
+      width:min(100%,920px);
       margin:0 auto;
+      --rx:50%;
+      --ry:50%;
     }
     .bg-base{
+      position:relative;
+      z-index:3;
       font-family:'DM Serif Display',serif;
       font-size:clamp(110px,22vw,280px);
       line-height:.82; letter-spacing:-.08em; margin:0;
@@ -204,12 +210,42 @@
       text-shadow:0 0 26px rgba(160,120,255,.14);
       user-select:none;
     }
-    .bg-logo{
-      margin:16px auto 0; display:block; width:min(250px,45vw);
-      filter:drop-shadow(0 0 26px rgba(104,154,255,.16));
-      opacity:.96; animation:floaty 5.5s ease-in-out infinite
+    .bg-logo-back{
+      position:absolute;
+      left:50%;
+      top:50%;
+      transform:translate(-50%,-50%);
+      width:min(420px,60vw);
+      height:auto;
+      z-index:1;
+      opacity:.92;
+      filter:drop-shadow(0 0 44px rgba(140,103,255,.22));
+      animation:floaty 5.5s ease-in-out infinite;
+      pointer-events:none;
     }
-    @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+    .bg-hover-text{
+      position:absolute;
+      inset:0;
+      display:grid;
+      place-items:center;
+      z-index:2;
+      font-family:'DM Serif Display',serif;
+      font-size:clamp(54px,8vw,112px);
+      line-height:.9;
+      letter-spacing:-.045em;
+      color:rgba(244,241,251,.98);
+      opacity:0;
+      transition:opacity .22s ease;
+      text-shadow:0 0 24px rgba(170,136,255,.18);
+      -webkit-mask-image:radial-gradient(120px circle at var(--rx) var(--ry), #000 0, #000 38%, transparent 72%);
+      mask-image:radial-gradient(120px circle at var(--rx) var(--ry), #000 0, #000 38%, transparent 72%);
+      pointer-events:none;
+      user-select:none;
+      text-align:center;
+      padding:0 24px;
+    }
+    .bg-reveal.is-hover .bg-hover-text{opacity:1}
+    @keyframes floaty{0%,100%{transform:translate(-50%,-50%) translateY(0)}50%{transform:translate(-50%,-50%) translateY(-8px)}}
 
     .links-scene{display:grid; align-content:center; gap:26px; width:min(100%,1200px)}
     .links-head h2{margin:0; font-family:'DM Serif Display',serif; font-size:clamp(48px,7vw,86px); font-weight:400; text-align:center}
@@ -243,25 +279,28 @@
     .scene-progress span::after{content:''; position:absolute; inset:0; background:linear-gradient(90deg,#7b4cff,#c8b2ff); transform:scaleX(0); transform-origin:left; transition:transform .35s ease}
     .scene-progress span.active::after{transform:scaleX(1)}
 
+    .scroll-hint{display:none}
     .scroll-arrow{
       position:absolute;
-      right:26px;
-      bottom:22px;
+      left:50%;
+      bottom:26px;
+      transform:translateX(-50%);
       z-index:6;
       display:flex;
-      justify-content:center;
       align-items:center;
-      opacity:.95;
-      animation:arrowFloat 1.8s ease-in-out infinite;
+      justify-content:center;
+      opacity:.94;
+      animation:arrowFloat 1.9s ease-in-out infinite;
+      pointer-events:none;
     }
     .scroll-arrow svg{
       display:block;
-      filter:drop-shadow(0 0 12px rgba(200,167,255,.35));
+      filter:drop-shadow(0 0 14px rgba(200,167,255,.40));
     }
     @keyframes arrowFloat{
-      0%{transform:translateY(0);opacity:.72}
-      50%{transform:translateY(8px);opacity:1}
-      100%{transform:translateY(0);opacity:.72}
+      0%{transform:translateX(-50%) translateY(0); opacity:.7}
+      50%{transform:translateX(-50%) translateY(8px); opacity:1}
+      100%{transform:translateX(-50%) translateY(0); opacity:.7}
     }
 
     .gunduzler-gate{
@@ -313,7 +352,7 @@
       .links-head h2{font-size:56px}
       .footer{font-size:10px; letter-spacing:.12em}
       .scene-progress span{width:32px}
-      .scroll-arrow{display:none}
+      .scroll-hint{display:none}
       .welcome-copy p{font-size:36px}
     }
   </style>
@@ -332,7 +371,7 @@
   <nav class="nav" aria-label="Bölüm menüsü">
     <button type="button" data-scene="0" class="active">Berkay</button>
     <button type="button" data-scene="2">BG</button>
-    <button type="button" data-scene="3">Linkler</button>
+    <button type="button" data-scene="3">Links</button>
     <a href="#gunduzler-gate">GÜNDÜZLER</a>
   </nav>
 
@@ -346,17 +385,18 @@
 
         <div class="scene" data-scene="1" id="scene-welcome">
           <div class="welcome-copy">
-            <p>Kişisel websiteme hoşgeldin.</p>
-            <span>Devam etmek için kaydır</span>
+            <p data-nosnippet>Kişisel websiteme hoşgeldiniz.</p>
+            <span data-nosnippet>Scroll to continue</span>
           </div>
         </div>
 
         <div class="scene" data-scene="2" id="scene-bg">
           <div class="bg-wrap">
             <div class="bg-reveal" id="bgReveal">
+              <img class="bg-logo-back" src="/assets/bg23-logo.png" alt="BG23 logo" />
+              <div class="bg-hover-text" aria-hidden="true">BERKAY GÜNDÜZ</div>
               <h2 class="bg-base">BG</h2>
             </div>
-            <img class="bg-logo" src="/assets/bg23-logo.png" alt="BG23 logo" />
           </div>
         </div>
 
@@ -366,19 +406,19 @@
             <div class="links-grid">
               <a class="card" href="https://steamcommunity.com/id/bg023/" target="_blank" rel="noopener">
                 <div class="icon"><img src="/assets/steam-logo.png" alt="Steam" /></div>
-                <h3>Steam</h3><div class="domain">steamcommunity.com</div><div class="minor-line"></div>
+                <h3>Steam</h3><div class="domain" data-nosnippet>steamcommunity.com</div><div class="minor-line"></div>
               </a>
               <a class="card" href="https://open.spotify.com/user/d5llssfdktavidumud7osj9kg?si=ab05bd3ad8b04107" target="_blank" rel="noopener">
                 <div class="icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18.95 10.54c-3.77-2.24-10-2.45-13.6-1.35a1 1 0 1 1-.58-1.92c4.12-1.25 10.96-1.02 15.2 1.5a1 1 0 0 1-1.02 1.77Z" fill="currentColor"/><path d="M17.53 13.76c-3.15-1.93-7.95-2.49-11.68-1.35a.83.83 0 1 1-.49-1.59c4.26-1.31 9.53-.68 13.03 1.46a.83.83 0 1 1-.86 1.48Z" fill="currentColor"/><path d="M16.1 16.87c-2.7-1.65-6.1-2.03-10.1-1.12a.67.67 0 1 1-.3-1.31c4.34-.99 8.08-.56 11.1 1.3a.67.67 0 1 1-.7 1.13Z" fill="currentColor"/></svg></div>
-                <h3>Spotify</h3><div class="domain">open.spotify.com</div><div class="minor-line"></div>
+                <h3>Spotify</h3><div class="domain" data-nosnippet>open.spotify.com</div><div class="minor-line"></div>
               </a>
               <a class="card" href="https://www.instagram.com/bvrkay/" target="_blank" rel="noopener">
                 <div class="icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3.6" stroke="currentColor" stroke-width="1.8"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg></div>
-                <h3>Instagram</h3><div class="domain">instagram.com</div><div class="minor-line"></div>
+                <h3>Instagram</h3><div class="domain" data-nosnippet>instagram.com</div><div class="minor-line"></div>
               </a>
               <a class="card" href="https://x.com/berkaysoprano23" target="_blank" rel="noopener">
                 <div class="icon"><svg viewBox="0 0 1200 1227" fill="none" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.476 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.137 687.903L521.67 619.973L144.011 79.6944H306.62L611.381 515.758L658.848 583.689L1055.08 1150.54H892.47L569.137 687.903Z" fill="currentColor"/></svg></div>
-                <h3>X</h3><div class="domain">x.com</div><div class="minor-line"></div>
+                <h3>X</h3><div class="domain" data-nosnippet>x.com</div><div class="minor-line"></div>
               </a>
             </div>
           </div>
@@ -390,9 +430,9 @@
           <span></span>
           <span></span>
         </div>
-        <div class="scroll-arrow" aria-hidden="true">
-          <svg width="28" height="18" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6 6L16 15L26 6" stroke="#c8a7ff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+        <div class="scroll-arrow" aria-hidden="true" data-nosnippet>
+          <svg width="32" height="20" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 6L16 15L26 6" stroke="#c8a7ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
       </div>
@@ -427,6 +467,21 @@
         card.style.setProperty('--ty',(e.clientY-r.top)+'px');
       });
     });
+
+    const bgReveal=document.getElementById('bgReveal');
+    if(bgReveal){
+      const setRevealPoint=(clientX,clientY)=>{
+        const r=bgReveal.getBoundingClientRect();
+        bgReveal.style.setProperty('--rx', `${clientX-r.left}px`);
+        bgReveal.style.setProperty('--ry', `${clientY-r.top}px`);
+      };
+      bgReveal.addEventListener('pointerenter',()=>bgReveal.classList.add('is-hover'));
+      bgReveal.addEventListener('pointermove',e=>{
+        bgReveal.classList.add('is-hover');
+        setRevealPoint(e.clientX,e.clientY);
+      });
+      bgReveal.addEventListener('pointerleave',()=>bgReveal.classList.remove('is-hover'));
+    }
 
     window.addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('hide'),800));
 
@@ -489,21 +544,37 @@
     });
 
     let touchStartY = null;
-    window.addEventListener('touchstart',e=>{
-      if(window.innerWidth >= 900 && introInView()) touchStartY = e.touches[0].clientY;
-    },{passive:true});
-    window.addEventListener('touchend',e=>{
-      if(window.innerWidth >= 900 && introInView() && touchStartY != null){
-        const endY = (e.changedTouches[0]||{}).clientY ?? touchStartY;
-        const delta = touchStartY - endY;
-        if(Math.abs(delta) > 35){
-          if(delta > 0 && activeScene < scenes.length-1) setScene(activeScene+1);
-          else if(delta > 0 && activeScene === scenes.length-1) gate.scrollIntoView({behavior:'smooth'});
-          else if(delta < 0 && activeScene > 0) setScene(activeScene-1);
+    let touchStartX = null;
+    const introShell=document.querySelector('.intro-shell');
+    if(introShell){
+      introShell.addEventListener('touchstart',e=>{
+        if(introInView()){
+          touchStartY = e.touches[0].clientY;
+          touchStartX = e.touches[0].clientX;
         }
-      }
-      touchStartY = null;
-    },{passive:true});
+      },{passive:false});
+      introShell.addEventListener('touchmove',e=>{
+        if(introInView()) e.preventDefault();
+      },{passive:false});
+      introShell.addEventListener('touchend',e=>{
+        if(introInView() && touchStartY != null){
+          const end = (e.changedTouches[0]||{clientY:touchStartY,clientX:touchStartX});
+          const deltaY = touchStartY - end.clientY;
+          const deltaX = Math.abs((touchStartX ?? 0) - end.clientX);
+          if(Math.abs(deltaY) > 30 && deltaX < 80){
+            if(deltaY > 0 && activeScene < scenes.length-1){
+              setScene(activeScene+1);
+            }else if(deltaY > 0 && activeScene === scenes.length-1){
+              gate.scrollIntoView({behavior:'smooth'});
+            }else if(deltaY < 0 && activeScene > 0){
+              setScene(activeScene-1);
+            }
+          }
+        }
+        touchStartY = null;
+        touchStartX = null;
+      },{passive:false});
+    }
 
     const sectionLink=document.querySelector('.nav a[href="#gunduzler-gate"]');
     const observer=new IntersectionObserver(entries=>{
