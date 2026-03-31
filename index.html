@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Berkay Gündüz | Personal Site</title>
   <meta name="description" content="Berkay Gündüz kişisel sitesi ve GÜNDÜZLER sayfası." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://berkaygunduz.com/" />
-  <meta name="theme-color" content="#09070f" />
+  <meta name="theme-color" content="#070710" />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Berkay Gündüz" />
@@ -28,48 +27,26 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&family=Anton&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"WebSite",
-    "name":"Berkay Gündüz",
-    "alternateName":["berkaygunduz.com","Berkay Gündüz Com"],
-    "url":"https://berkaygunduz.com/"
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"Berkay Gündüz",
-    "alternateName":"berkaygunduz.com",
-    "url":"https://berkaygunduz.com/",
-    "logo":"https://berkaygunduz.com/assets/bg-logo-square.png",
-    "sameAs":[
-      "https://www.instagram.com/bvrkay/",
-      "https://x.com/berkaysoprano23",
-      "https://open.spotify.com/user/d5llssfdktavidumud7osj9kg?si=ab05bd3ad8b04107",
-      "https://steamcommunity.com/id/bg023/"
-    ]
-  }
-  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Berkay Gündüz","alternateName":["berkaygunduz.com","Berkay Gündüz Com"],"url":"https://berkaygunduz.com/"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Berkay Gündüz","alternateName":"berkaygunduz.com","url":"https://berkaygunduz.com/","logo":"https://berkaygunduz.com/assets/bg-logo-square.png","sameAs":["https://www.instagram.com/bvrkay/","https://x.com/berkaysoprano23","https://open.spotify.com/user/d5llssfdktavidumud7osj9kg?si=ab05bd3ad8b04107","https://steamcommunity.com/id/bg023/"]}</script>
 
   <style>
     :root{
-      --bg:#04050d;
-      --bg-2:#0b0814;
-      --panel:rgba(12,10,20,.58);
+      --bg:#05060d;
+      --bg2:#0a0812;
+      --panel:rgba(9,7,16,.74);
       --line:rgba(255,255,255,.08);
       --text:#f6f3ff;
-      --muted:#b8b1cf;
-      --purple:#8c61ff;
-      --purple-2:#b08fff;
-      --soft:rgba(140,97,255,.16);
-      --radius:28px;
-      --max:1220px;
-      --nav-h:74px;
+      --muted:#b7b0cf;
+      --purple:#8d67ff;
+      --purple-soft:rgba(141,103,255,.22);
+      --purple-strong:rgba(177,147,255,.28);
+      --mx:50%;
+      --my:50%;
+      --scene-progress:0;
+      --nav-h:76px;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -78,159 +55,210 @@
       font-family:'Inter',system-ui,sans-serif;
       color:var(--text);
       background:
-        radial-gradient(circle at 18% 12%, rgba(125,58,237,.18), transparent 24%),
-        radial-gradient(circle at 82% 28%, rgba(176,143,255,.10), transparent 20%),
-        linear-gradient(180deg, #06060d 0%, #05050a 40%, #06060c 100%);
+        radial-gradient(circle at 18% 14%, rgba(124,76,255,.14), transparent 18%),
+        radial-gradient(circle at 82% 24%, rgba(176,143,255,.09), transparent 16%),
+        linear-gradient(180deg,#04050c,#05060b 32%,#06060c 100%);
       overflow-x:hidden;
     }
     body::before{
-      content:"";
-      position:fixed; inset:0;
+      content:'';
+      position:fixed;
+      inset:0;
       pointer-events:none;
-      background:
-        radial-gradient(240px circle at var(--mx,50%) var(--my,50%), rgba(176,143,255,.16), transparent 60%);
+      z-index:1;
+      background:radial-gradient(220px circle at var(--mx) var(--my), rgba(167,139,250,.14), transparent 60%);
       mix-blend-mode:screen;
-      opacity:.9;
-      z-index:2;
     }
     body::after{
-      content:"";
-      position:fixed; inset:0;
+      content:'';
+      position:fixed;
+      inset:0;
       pointer-events:none;
-      background-image: radial-gradient(rgba(255,255,255,.055) .6px, transparent .8px);
-      background-size: 16px 16px;
-      opacity:.18;
       z-index:1;
+      opacity:.14;
+      background-image:radial-gradient(rgba(255,255,255,.05) .6px, transparent .8px);
+      background-size:16px 16px;
     }
+    a{color:inherit}
+
     #loader{
-      position:fixed; inset:0; z-index:120;
-      display:flex; align-items:center; justify-content:center;
+      position:fixed;
+      inset:0;
+      z-index:120;
+      display:flex;
+      align-items:center;
+      justify-content:center;
       background:linear-gradient(180deg,#05050b,#090712);
       transition:opacity .7s ease, visibility .7s ease;
     }
-    #loader.hide{opacity:0; visibility:hidden}
-    .loader-inner{display:flex; flex-direction:column; align-items:center; gap:18px}
-    .loader-inner img{width:min(170px,28vw); filter:drop-shadow(0 0 28px rgba(145,103,255,.28))}
-    .loader-bar{width:min(180px,44vw); height:3px; border-radius:99px; background:rgba(255,255,255,.08); overflow:hidden}
-    .loader-bar span{display:block; height:100%; width:44%; background:linear-gradient(90deg,#7b4cff,#c8b2ff); border-radius:inherit; animation:bar 1.2s ease-in-out infinite}
-    .loader-copy{font-size:13px; letter-spacing:.34em; text-transform:uppercase; color:#d8cff8}
-    @keyframes bar{0%{transform:translateX(-120%)} 100%{transform:translateX(310%)}}
+    #loader.hide{opacity:0;visibility:hidden}
+    .loader-inner{display:flex;flex-direction:column;align-items:center;gap:18px}
+    .loader-inner img{width:min(170px,28vw);filter:drop-shadow(0 0 28px rgba(145,103,255,.28))}
+    .loader-bar{width:min(180px,44vw);height:3px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden}
+    .loader-bar span{display:block;height:100%;width:44%;background:linear-gradient(90deg,#7b4cff,#c8b2ff);border-radius:inherit;animation:bar 1.2s ease-in-out infinite}
+    .loader-copy{font-size:13px;letter-spacing:.34em;text-transform:uppercase;color:#d8cff8}
+    @keyframes bar{0%{transform:translateX(-120%)}100%{transform:translateX(310%)}}
 
     .logo-home{
-      position:fixed; top:18px; left:18px; z-index:90;
-      width:64px; height:64px; display:grid; place-items:center;
-      border-radius:22px; border:1px solid rgba(255,255,255,.08);
-      background:rgba(9,7,16,.72); backdrop-filter: blur(14px);
+      position:fixed;
+      top:18px;
+      left:18px;
+      z-index:90;
+      width:64px;
+      height:64px;
+      display:grid;
+      place-items:center;
+      border-radius:22px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(9,7,16,.72);
+      backdrop-filter:blur(14px);
       box-shadow:0 16px 50px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.02);
       transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+      text-decoration:none;
     }
-    .logo-home:hover{transform:translateY(-2px); border-color:rgba(176,143,255,.34); box-shadow:0 18px 56px rgba(0,0,0,.42), 0 0 28px rgba(140,97,255,.16)}
-    .logo-home img{width:40px; height:40px; object-fit:contain}
+    .logo-home:hover{transform:translateY(-2px);border-color:rgba(176,143,255,.34);box-shadow:0 18px 56px rgba(0,0,0,.42),0 0 28px rgba(140,97,255,.16)}
+    .logo-home img{width:40px;height:40px;object-fit:contain}
 
     .nav{
-      position:fixed; top:18px; right:18px; z-index:90;
-      display:flex; gap:8px; align-items:center;
-      padding:8px; border-radius:24px;
+      position:fixed;
+      top:18px;
+      right:18px;
+      z-index:90;
+      display:flex;
+      gap:8px;
+      align-items:center;
+      padding:8px;
+      border-radius:24px;
       background:rgba(9,7,16,.72);
       border:1px solid rgba(255,255,255,.08);
-      backdrop-filter: blur(14px);
+      backdrop-filter:blur(14px);
       box-shadow:0 18px 60px rgba(0,0,0,.28);
     }
-    .nav a{
-      color:#eee8ff; text-decoration:none; font-size:12px; letter-spacing:.18em; text-transform:uppercase;
-      padding:12px 14px; border-radius:16px; position:relative;
-      transition:color .2s ease, background .2s ease;
+    .nav button,.nav a{
+      appearance:none;
+      border:0;
+      background:none;
+      color:#eee8ff;
+      text-decoration:none;
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      padding:12px 14px;
+      border-radius:16px;
+      position:relative;
+      transition:color .2s ease,background .2s ease;
+      cursor:pointer;
+      font-family:inherit;
     }
-    .nav a:hover,.nav a.active{color:#fff; background:rgba(255,255,255,.06)}
+    .nav button:hover,.nav a:hover,.nav button.active,.nav a.active{color:#fff;background:rgba(255,255,255,.06)}
     @media(max-width:900px){
-      .nav{left:94px; right:14px; overflow:auto; justify-content:flex-start}
-      .nav a{white-space:nowrap; font-size:11px; padding:10px 12px}
+      .nav{left:94px;right:14px;overflow:auto;justify-content:flex-start}
+      .nav button,.nav a{white-space:nowrap;font-size:11px;padding:10px 12px}
       .logo-home{width:58px;height:58px}
     }
 
-    main{position:relative; z-index:3}
-    section{
+    main{position:relative;z-index:3}
+
+    .intro-wrap{position:relative;height:400vh}
+    .intro-stage{
+      position:sticky;
+      top:0;
       min-height:100svh;
-      display:flex; align-items:center; justify-content:center;
-      padding: calc(var(--nav-h) + 30px) 20px 40px;
-      position:relative;
+      overflow:hidden;
+      padding:104px 20px 28px;
+      display:flex;
+      align-items:stretch;
+      justify-content:center;
     }
-    .shell{
-      width:min(var(--max),100%);
-      border:1px solid rgba(255,255,255,.07);
-      background:linear-gradient(180deg, rgba(10,9,18,.58), rgba(7,7,13,.48));
+    .intro-shell{
+      width:min(1240px,100%);
+      min-height:calc(100svh - 132px);
       border-radius:34px;
       overflow:hidden;
+      border:1px solid rgba(255,255,255,.07);
       box-shadow:0 35px 100px rgba(0,0,0,.35);
+      background:linear-gradient(180deg, rgba(10,9,18,.58), rgba(7,7,13,.48));
       position:relative;
     }
-    .shell::before{
-      content:"";
-      position:absolute; inset:auto 0 0;
-      height:1px; background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);
+    .intro-shell::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:
+        radial-gradient(circle at 50% 52%, rgba(124,76,255,.20), transparent 30%),
+        radial-gradient(circle at 22% 22%, rgba(176,143,255,.12), transparent 18%),
+        linear-gradient(180deg, rgba(255,255,255,.02), transparent 28%);
+    }
+    .scene{
+      position:absolute;
+      inset:0;
+      display:grid;
+      place-items:center;
+      padding:34px;
+      opacity:0;
+      transform:translateY(40px) scale(.985);
+      filter:blur(12px);
+      transition:opacity .55s ease, transform .75s ease, filter .75s ease;
+      pointer-events:none;
+    }
+    .scene.active{
+      opacity:1;
+      transform:translateY(0) scale(1);
+      filter:blur(0);
+      pointer-events:auto;
     }
 
-    .hero{
-      min-height:calc(100svh - 60px);
-      padding:92px 26px 44px;
-      display:grid; place-items:center;
-      position:relative;
-    }
-    .hero-copy{text-align:center; max-width:920px; z-index:2}
+    .hero-copy{text-align:center;max-width:920px;z-index:2}
     .hero-copy h1{
-      margin:0 0 14px;
-      font-family:'DM Serif Display', serif;
-      font-size:clamp(56px,9.2vw,124px);
+      margin:0;
+      font-family:'DM Serif Display',serif;
+      font-size:clamp(58px,10vw,132px);
       line-height:.95;
       font-weight:400;
-      letter-spacing:-.03em;
-      text-shadow:0 0 30px rgba(160,120,255,.18), 0 0 85px rgba(92,42,250,.12);
-    }
-    .hero-copy p{
-      margin:0; font-size:clamp(15px,1.8vw,19px); color:var(--muted);
-      letter-spacing:.18em; text-transform:uppercase;
+      letter-spacing:-.045em;
+      text-shadow:0 0 30px rgba(160,120,255,.18),0 0 85px rgba(92,42,250,.12);
     }
     .hero-glow{
-      position:absolute; width:min(620px,70vw); aspect-ratio:1; border-radius:50%;
+      position:absolute;
+      width:min(620px,70vw);
+      aspect-ratio:1;
+      border-radius:50%;
       background:radial-gradient(circle, rgba(124,76,255,.34) 0, rgba(124,76,255,.11) 40%, transparent 72%);
-      filter:blur(16px); animation:breathe 7s ease-in-out infinite;
+      filter:blur(16px);
+      animation:breathe 7s ease-in-out infinite;
       opacity:.94;
     }
     @keyframes breathe{0%,100%{transform:scale(.95);opacity:.86}50%{transform:scale(1.05);opacity:1}}
 
-    .bg-stage{
-      min-height:calc(100svh - 60px);
-      padding:66px 22px 44px;
-      display:grid; place-items:center;
-      position:relative; overflow:hidden;
-    }
-    .bg-stage::before{
-      content:"";
-      position:absolute; inset:0;
-      background:
-        radial-gradient(circle at 50% 52%, rgba(124,76,255,.20), transparent 30%),
-        linear-gradient(180deg, rgba(255,255,255,.02), transparent 26%);
-      pointer-events:none;
-    }
-    .bg-wrap{text-align:center; position:relative; z-index:2; width:min(100%,920px)}
+    .bg-wrap{text-align:center;position:relative;z-index:2;width:min(100%,920px)}
     .bg-reveal{
-      position:relative; display:inline-grid; place-items:center;
-      min-height:320px; width:min(100%,850px); margin:0 auto;
-      --rx:50%; --ry:50%;
+      position:relative;
+      display:inline-grid;
+      place-items:center;
+      min-height:320px;
+      width:min(100%,850px);
+      margin:0 auto;
+      --rx:50%;
+      --ry:50%;
     }
     .bg-base{
-      font-family:'DM Serif Display', serif;
+      font-family:'DM Serif Display',serif;
       font-size:clamp(110px,22vw,280px);
       line-height:.82;
       letter-spacing:-.08em;
-      margin:0; color:#f4f1fb;
+      margin:0;
+      color:#f4f1fb;
       text-shadow:0 0 26px rgba(160,120,255,.14);
       transition:transform .35s ease, opacity .35s ease;
       user-select:none;
     }
     .bg-full{
-      position:absolute; inset:0; display:grid; place-items:center;
-      font-family:'DM Serif Display', serif;
+      position:absolute;
+      inset:0;
+      display:grid;
+      place-items:center;
+      font-family:'DM Serif Display',serif;
       font-size:clamp(34px,6.2vw,88px);
       line-height:1;
       letter-spacing:.08em;
@@ -240,249 +268,243 @@
       -webkit-mask-image:radial-gradient(circle 150px at var(--rx) var(--ry), #000 0 45%, transparent 75%);
       mask-image:radial-gradient(circle 150px at var(--rx) var(--ry), #000 0 45%, transparent 75%);
       pointer-events:none;
-      text-shadow:0 0 26px rgba(160,120,255,.20);
     }
-    .bg-meta{
-      width:min(760px,100%); margin:0 auto; display:flex; align-items:center; gap:16px;
-    }
-    .pill{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:10px 18px; border-radius:999px;
-      border:1px solid rgba(255,255,255,.08);
-      background:rgba(12,11,19,.55); color:#ece6ff;
-      font-size:12px; letter-spacing:.18em; text-transform:uppercase;
-    }
-    .pill::before{
-      content:""; width:7px; height:7px; border-radius:50%; background:#9a78ff;
-      box-shadow:0 0 14px rgba(154,120,255,.8);
-    }
-    .meta-line{flex:1; height:1px; background:linear-gradient(90deg, rgba(255,255,255,.12), transparent)}
-    .coming{
-      margin:24px 0 0;
-      font-size:clamp(28px,4vw,52px); letter-spacing:.34em; text-transform:uppercase; color:#c8aefc;
-    }
+    .bg-logo{margin:16px auto 0;display:block;width:min(250px,45vw);filter:drop-shadow(0 0 26px rgba(104,154,255,.16));opacity:.96;animation:floaty 5.5s ease-in-out infinite}
+    @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 
-    .links{
-      min-height:calc(100svh - 60px);
-      padding:82px 26px 36px;
-      display:grid; align-content:center; gap:28px;
+    .links-scene{
+      display:grid;
+      align-content:center;
+      gap:26px;
+      width:min(100%,1200px);
     }
-    .links-head{
-      display:flex; align-items:flex-end; justify-content:space-between; gap:20px; flex-wrap:wrap;
-    }
-    .links-head h2{
-      margin:0; font-family:'DM Serif Display',serif; font-size:clamp(40px,6vw,82px); font-weight:400;
-    }
-    .links-grid{
-      display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px;
-    }
+    .links-head h2{margin:0;font-family:'DM Serif Display',serif;font-size:clamp(48px,7vw,86px);font-weight:400;text-align:center}
+    .links-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
     .card{
-      position:relative; min-height:170px; overflow:hidden;
-      border-radius:26px;
+      position:relative;
+      overflow:hidden;
+      min-height:225px;
+      padding:22px 22px 18px;
+      border-radius:28px;
       border:1px solid rgba(255,255,255,.08);
-      background:linear-gradient(180deg, rgba(16,14,24,.86), rgba(10,10,15,.78));
-      padding:22px; text-decoration:none; color:inherit;
-      display:flex; flex-direction:column; justify-content:flex-end; gap:10px;
-      box-shadow:0 20px 50px rgba(0,0,0,.20);
-      transition:transform .28s ease, border-color .28s ease;
-      isolation:isolate;
+      background:rgba(8,8,14,.56);
+      box-shadow:0 16px 40px rgba(0,0,0,.24);
+      text-decoration:none;
+      color:#fff;
+      transition:transform .25s ease,border-color .25s ease, box-shadow .25s ease;
     }
     .card::before{
-      content:""; position:absolute; inset:auto auto 20px 26px;
-      width:120px; height:120px; border-radius:50%;
-      background:radial-gradient(circle, rgba(182,154,255,.55) 0, rgba(124,76,255,.18) 34%, transparent 70%);
-      transform:translate(calc(var(--tx,0px)),calc(var(--ty,0px)));
-      filter:blur(10px); opacity:.0;
-      transition:opacity .28s ease, transform .14s ease;
-      z-index:-1;
+      content:'';
+      position:absolute;
+      width:160px;height:160px;border-radius:50%;
+      left:calc(var(--tx,50%) - 80px);top:calc(var(--ty,50%) - 80px);
+      background:radial-gradient(circle, rgba(172,141,255,.24), transparent 68%);
+      opacity:0;transition:opacity .25s ease;pointer-events:none
     }
-    .card:hover{transform:translateY(-5px); border-color:rgba(176,143,255,.34)}
+    .card:hover{transform:translateY(-4px);border-color:rgba(176,143,255,.34);box-shadow:0 24px 60px rgba(0,0,0,.34)}
     .card:hover::before{opacity:1}
-    .icon{
-      width:62px; height:62px; border-radius:18px;
-      display:grid; place-items:center;
-      background:rgba(255,255,255,.03);
-      border:1px solid rgba(255,255,255,.06);
-      color:#f2eff8;
-      box-shadow:inset 0 0 0 1px rgba(255,255,255,.02);
+    .icon{width:64px;height:64px;border-radius:20px;border:1px solid rgba(255,255,255,.08);display:grid;place-items:center;background:rgba(255,255,255,.03);margin-bottom:22px}
+    .icon svg{width:30px;height:30px;display:block;color:#fff}
+    .icon img{width:30px;height:30px;display:block;object-fit:contain;filter:grayscale(1) brightness(1.15)}
+    .card h3{margin:0 0 10px;font-size:24px;letter-spacing:-.03em}
+    .domain{color:#a59fb7;font-size:14px;line-height:1.4}
+    .minor-line{margin-top:18px;height:1px;background:linear-gradient(90deg,rgba(255,255,255,.08),transparent)}
+
+    .scene-progress{
+      position:absolute;
+      left:50%;
+      bottom:22px;
+      transform:translateX(-50%);
+      display:flex;
+      gap:10px;
+      z-index:5;
     }
-    .icon svg, .icon img{width:30px; height:30px; object-fit:contain}
-    .card h3{margin:0; font-size:26px}
-    .card .domain{color:#a79ebf; font-size:13px; word-break:break-all}
-    .minor-line{height:1px; background:linear-gradient(90deg, rgba(255,255,255,.09), transparent); margin-top:8px}
-    .footer{
-      padding:16px 0 26px; text-align:center; color:#9086a7; font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+    .scene-progress span{
+      width:46px;height:3px;border-radius:999px;background:rgba(255,255,255,.12);overflow:hidden;position:relative;
     }
-    @media(max-width:980px){
-      .links-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-      .bg-full{font-size:clamp(26px,7.2vw,62px)}
+    .scene-progress span::after{
+      content:'';position:absolute;inset:0;background:linear-gradient(90deg,#7b4cff,#c8b2ff);transform:scaleX(0);transform-origin:left;transition:transform .35s ease;
     }
-    @media(max-width:680px){
-      section{padding-left:14px; padding-right:14px}
-      .shell{border-radius:28px}
-      .hero{padding-top:84px}
-      .bg-stage,.links{padding-left:16px; padding-right:16px}
-      .bg-reveal{min-height:240px}
-      .bg-base{font-size:min(42vw,190px)}
-      .coming{letter-spacing:.20em}
-      .bg-meta{gap:10px}
+    .scene-progress span.active::after{transform:scaleX(1)}
+
+    .gunduzler-gate{
+      min-height:100svh;
+      display:grid;
+      place-items:center;
+      padding:104px 20px 40px;
+      position:relative;
+      z-index:3;
+    }
+    .gate-card{
+      width:min(1220px,100%);
+      min-height:calc(100svh - 144px);
+      border-radius:34px;
+      border:1px solid rgba(255,255,255,.07);
+      box-shadow:0 35px 100px rgba(0,0,0,.35);
+      overflow:hidden;
+      position:relative;
+      display:grid;
+      place-items:center;
+      background:
+        linear-gradient(180deg, rgba(4,4,9,.18), rgba(4,4,9,.64)),
+        url('/assets/trade-duo.jpg') center/cover no-repeat;
+    }
+    .gate-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 72%, rgba(255,222,136,.12), transparent 18%),linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.44));pointer-events:none}
+    .gate-copy{text-align:center;position:relative;z-index:2;max-width:860px;padding:24px}
+    .gate-copy h2{margin:0 0 18px;font-family:'DM Serif Display',serif;font-size:clamp(56px,9vw,120px);line-height:.94;font-weight:400}
+    .gate-copy p{margin:0 auto 28px;max-width:780px;font-size:clamp(18px,2vw,24px);line-height:1.7;color:#f0eadf}
+    .gate-button{
+      display:inline-flex;align-items:center;justify-content:center;gap:12px;
+      text-decoration:none;color:#fff;padding:16px 22px;border-radius:999px;border:1px solid rgba(255,255,255,.10);
+      background:rgba(10,10,16,.58);letter-spacing:.18em;text-transform:uppercase;font-size:12px;
+      transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+      box-shadow:0 18px 50px rgba(0,0,0,.28);
+    }
+    .gate-button:hover{transform:translateY(-2px);border-color:rgba(255,223,145,.34);box-shadow:0 22px 60px rgba(0,0,0,.35),0 0 20px rgba(255,223,145,.10)}
+    .footer{text-align:center;color:#9a92b6;font-size:12px;letter-spacing:.16em;text-transform:uppercase;padding:0 20px 34px;position:relative;z-index:3}
+
+    @media(max-width:1120px){.links-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:720px){
+      .intro-stage,.gunduzler-gate{padding:96px 14px 24px}
+      .intro-shell,.gate-card{min-height:calc(100svh - 124px);border-radius:28px}
+      .scene{padding:22px}
       .links-grid{grid-template-columns:1fr}
-      .links-head h2{font-size:54px}
-      .footer{font-size:10px; letter-spacing:.12em}
+      .links-head h2{font-size:56px}
+      .footer{font-size:10px;letter-spacing:.12em}
+      .scene-progress span{width:32px}
     }
   </style>
 </head>
 <body>
-  <div id="loader" aria-hidden="true">
-    <div class="loader-inner">
-      <img src="/assets/bg-logo-full.png" alt="" />
-      <div class="loader-bar"><span></span></div>
-      <div class="loader-copy">In Progress</div>
-    </div>
-  </div>
-
-  <a class="logo-home" href="/" aria-label="Ana sayfa">
-    <img src="/assets/bg-logo-full.png" alt="BG logo" />
-  </a>
-
+  <div id="loader" aria-hidden="true"><div class="loader-inner"><img src="/assets/bg-logo-full.png" alt="" /><div class="loader-bar"><span></span></div><div class="loader-copy">Loading</div></div></div>
+  <a class="logo-home" href="/" aria-label="Ana sayfa"><img src="/assets/bg-logo-full.png" alt="BG logo" /></a>
   <nav class="nav" aria-label="Bölüm menüsü">
-    <a href="#hero">Berkay</a>
-    <a href="#progress">In Progress</a>
-    <a href="#links">Links</a>
-    <a href="/gunduzler/">GÜNDÜZLER</a>
+    <button type="button" data-scene="0" class="active">Berkay</button>
+    <button type="button" data-scene="1">BG</button>
+    <button type="button" data-scene="2">Links</button>
+    <a href="#gunduzler-gate">GÜNDÜZLER</a>
   </nav>
 
   <main>
-    <section id="hero">
-      <div class="shell hero">
-        <div class="hero-glow"></div>
-        <div class="hero-copy">
-          <h1>Berkay Gündüz</h1>
-          <p>Personal Site</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="progress">
-      <div class="shell bg-stage">
-        <div class="bg-wrap">
-          <div class="bg-reveal" id="bgReveal">
-            <h2 class="bg-base">BG</h2>
-            <div class="bg-full">BERKAY GÜNDÜZ</div>
+    <section class="intro-wrap" id="intro-wrap">
+      <div class="intro-stage">
+        <div class="intro-shell">
+          <div class="scene active" data-scene="0" id="scene-berkay">
+            <div class="hero-glow"></div>
+            <div class="hero-copy"><h1>Berkay Gündüz</h1></div>
           </div>
 
-          <div class="bg-meta">
-            <div class="pill">In Progress</div>
-            <div class="meta-line"></div>
+          <div class="scene" data-scene="1" id="scene-bg">
+            <div class="bg-wrap">
+              <div class="bg-reveal" id="bgReveal">
+                <h2 class="bg-base">BG</h2>
+                <div class="bg-full">BERKAY GÜNDÜZ</div>
+              </div>
+              <img class="bg-logo" src="/assets/bg23-logo.png" alt="BG23 logo" />
+            </div>
           </div>
-          <div class="coming">Coming Soon</div>
+
+          <div class="scene" data-scene="2" id="scene-links">
+            <div class="links-scene">
+              <div class="links-head"><h2>Links</h2></div>
+              <div class="links-grid">
+                <a class="card" href="https://steamcommunity.com/id/bg023/" target="_blank" rel="noopener"><div class="icon"><img src="/assets/steam-logo.png" alt="Steam" /></div><h3>Steam</h3><div class="domain">steamcommunity.com</div><div class="minor-line"></div></a>
+                <a class="card" href="https://open.spotify.com/user/d5llssfdktavidumud7osj9kg?si=ab05bd3ad8b04107" target="_blank" rel="noopener"><div class="icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18.95 10.54c-3.77-2.24-10-2.45-13.6-1.35a1 1 0 1 1-.58-1.92c4.12-1.25 10.96-1.02 15.2 1.5a1 1 0 0 1-1.02 1.77Z" fill="currentColor"/><path d="M17.53 13.76c-3.15-1.93-7.95-2.49-11.68-1.35a.83.83 0 1 1-.49-1.59c4.26-1.31 9.53-.68 13.03 1.46a.83.83 0 1 1-.86 1.48Z" fill="currentColor"/><path d="M16.1 16.87c-2.7-1.65-6.1-2.03-10.1-1.12a.67.67 0 1 1-.3-1.31c4.34-.99 8.08-.56 11.1 1.3a.67.67 0 1 1-.7 1.13Z" fill="currentColor"/></svg></div><h3>Spotify</h3><div class="domain">open.spotify.com</div><div class="minor-line"></div></a>
+                <a class="card" href="https://www.instagram.com/bvrkay/" target="_blank" rel="noopener"><div class="icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3.6" stroke="currentColor" stroke-width="1.8"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg></div><h3>Instagram</h3><div class="domain">instagram.com</div><div class="minor-line"></div></a>
+                <a class="card" href="https://x.com/berkaysoprano23" target="_blank" rel="noopener"><div class="icon"><svg viewBox="0 0 1200 1227" fill="none" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.476 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.137 687.903L521.67 619.973L144.011 79.6944H306.62L611.381 515.758L658.848 583.689L1055.08 1150.54H892.47L569.137 687.903Z" fill="currentColor"/></svg></div><h3>X</h3><div class="domain">x.com</div><div class="minor-line"></div></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="scene-progress" aria-hidden="true">
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="links">
-      <div class="shell links">
-        <div class="links-head">
-          <h2>Links</h2>
+    <section class="gunduzler-gate" id="gunduzler-gate">
+      <div class="gate-card">
+        <div class="gate-copy">
+          <h2>GÜNDÜZLER</h2>
+          <p>Her yol bir sorumluluk, her varış bir imza.</p>
+          <a class="gate-button" href="/gunduzler/">GÜNDÜZLER’e Gir</a>
         </div>
-
-        <div class="links-grid">
-          <a class="card" href="https://steamcommunity.com/id/bg023/" target="_blank" rel="noopener">
-            <div class="icon"><img src="/assets/steam-logo.png" alt="Steam" /></div>
-            <h3>Steam</h3>
-            <div class="domain">steamcommunity.com</div>
-            <div class="minor-line"></div>
-          </a>
-
-          <a class="card" href="https://open.spotify.com/user/d5llssfdktavidumud7osj9kg?si=ab05bd3ad8b04107" target="_blank" rel="noopener">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M18.95 10.54c-3.77-2.24-10-2.45-13.6-1.35a1 1 0 1 1-.58-1.92c4.12-1.25 10.96-1.02 15.2 1.5a1 1 0 0 1-1.02 1.77Z" fill="currentColor"/>
-                <path d="M17.53 13.76c-3.15-1.93-7.95-2.49-11.68-1.35a.83.83 0 1 1-.49-1.59c4.26-1.31 9.53-.68 13.03 1.46a.83.83 0 1 1-.86 1.48Z" fill="currentColor"/>
-                <path d="M16.1 16.87c-2.7-1.65-6.1-2.03-10.1-1.12a.67.67 0 1 1-.3-1.31c4.34-.99 8.08-.56 11.1 1.3a.67.67 0 1 1-.7 1.13Z" fill="currentColor"/>
-              </svg>
-            </div>
-            <h3>Spotify</h3>
-            <div class="domain">open.spotify.com</div>
-            <div class="minor-line"></div>
-          </a>
-
-          <a class="card" href="https://www.instagram.com/bvrkay/" target="_blank" rel="noopener">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <rect x="4" y="4" width="16" height="16" rx="5" stroke="currentColor" stroke-width="1.8"/>
-                <circle cx="12" cy="12" r="3.6" stroke="currentColor" stroke-width="1.8"/>
-                <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/>
-              </svg>
-            </div>
-            <h3>Instagram</h3>
-            <div class="domain">instagram.com</div>
-            <div class="minor-line"></div>
-          </a>
-
-          <a class="card" href="https://x.com/berkaysoprano23" target="_blank" rel="noopener">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M5 4h3.4l4.1 5.5L17.4 4H20l-6.1 7.2L20.5 20H17l-4.6-6.1L7.3 20H4.6l6.2-7.4L5 4Z" fill="currentColor"/>
-              </svg>
-            </div>
-            <h3>X</h3>
-            <div class="domain">x.com</div>
-            <div class="minor-line"></div>
-          </a>
-        </div>
-
-        <div class="footer">© Berkay Gündüz 2026, all rights reserved.</div>
       </div>
     </section>
+
+    <div class="footer">© Berkay Gündüz 2026, all rights reserved.</div>
   </main>
 
   <script>
-    const setMouse = e => {
-      const x = (e.clientX / window.innerWidth) * 100;
-      const y = (e.clientY / window.innerHeight) * 100;
-      document.body.style.setProperty('--mx', x + '%');
-      document.body.style.setProperty('--my', y + '%');
+    const setMouse=e=>{
+      const x=e.clientX/window.innerWidth*100;
+      const y=e.clientY/window.innerHeight*100;
+      document.body.style.setProperty('--mx',x+'%');
+      document.body.style.setProperty('--my',y+'%');
     };
-    window.addEventListener('pointermove', setMouse, {passive:true});
+    window.addEventListener('pointermove',setMouse,{passive:true});
 
-    const reveal = document.getElementById('bgReveal');
-    reveal.addEventListener('pointermove', e => {
-      const rect = reveal.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width) * 100;
-      const y = ((e.clientY - rect.top) / rect.height) * 100;
-      reveal.style.setProperty('--rx', x + '%');
-      reveal.style.setProperty('--ry', y + '%');
-    });
-
-    document.querySelectorAll('.nav a[href^="#"]').forEach(a => {
-      a.addEventListener('click', evt => {
-        evt.preventDefault();
-        document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+    const reveal=document.getElementById('bgReveal');
+    if(reveal){
+      reveal.addEventListener('pointermove',e=>{
+        const r=reveal.getBoundingClientRect();
+        const x=(e.clientX-r.left)/r.width*100;
+        const y=(e.clientY-r.top)/r.height*100;
+        reveal.style.setProperty('--rx',x+'%');
+        reveal.style.setProperty('--ry',y+'%');
       });
-    });
-    const sections = [...document.querySelectorAll('section[id]')];
-    const navLinks = [...document.querySelectorAll('.nav a[href^="#"]')];
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id));
-        }
-      })
-    }, {threshold:0.55});
-    sections.forEach(sec => obs.observe(sec));
+    }
 
-    document.querySelectorAll('.card').forEach(card => {
-      card.addEventListener('pointermove', e => {
-        const r = card.getBoundingClientRect();
-        card.style.setProperty('--tx', (e.clientX - r.left - 60) + 'px');
-        card.style.setProperty('--ty', (e.clientY - r.top - 60) + 'px');
+    document.querySelectorAll('.card').forEach(card=>{
+      card.addEventListener('pointermove',e=>{
+        const r=card.getBoundingClientRect();
+        card.style.setProperty('--tx',(e.clientX-r.left)+'px');
+        card.style.setProperty('--ty',(e.clientY-r.top)+'px');
       });
     });
 
-    window.addEventListener('load', () => {
-      setTimeout(() => document.getElementById('loader').classList.add('hide'), 850);
+    window.addEventListener('load',()=>{
+      setTimeout(()=>document.getElementById('loader').classList.add('hide'),800);
     });
+
+    const introWrap=document.getElementById('intro-wrap');
+    const scenes=[...document.querySelectorAll('.scene[data-scene]')];
+    const progressBars=[...document.querySelectorAll('.scene-progress span')];
+    const sceneButtons=[...document.querySelectorAll('.nav button[data-scene]')];
+    let activeScene=0;
+
+    function setScene(index){
+      const clamped=Math.max(0,Math.min(scenes.length-1,index));
+      if(clamped===activeScene && scenes[clamped].classList.contains('active')) return;
+      activeScene=clamped;
+      scenes.forEach((scene,i)=>scene.classList.toggle('active',i===clamped));
+      progressBars.forEach((bar,i)=>bar.classList.toggle('active',i===clamped));
+      sceneButtons.forEach((btn,i)=>btn.classList.toggle('active',i===clamped));
+    }
+
+    function updateIntroByScroll(){
+      const rect=introWrap.getBoundingClientRect();
+      const total=Math.max(1, introWrap.offsetHeight-window.innerHeight);
+      const progress=Math.min(.999,Math.max(0,(-rect.top)/total));
+      const sceneIndex=Math.min(scenes.length-1,Math.floor(progress*scenes.length));
+      setScene(sceneIndex);
+    }
+
+    sceneButtons.forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const index=Number(btn.dataset.scene || 0);
+        const total=Math.max(1, introWrap.offsetHeight-window.innerHeight);
+        const target=Math.round(total*(index/scenes.length));
+        window.scrollTo({top:introWrap.offsetTop+target,behavior:'smooth'});
+      });
+    });
+
+    window.addEventListener('scroll',updateIntroByScroll,{passive:true});
+    window.addEventListener('resize',updateIntroByScroll);
+    updateIntroByScroll();
   </script>
 </body>
 </html>
