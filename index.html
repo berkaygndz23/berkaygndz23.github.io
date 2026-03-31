@@ -191,8 +191,8 @@
       color:#ddd4fb;
     }
     .hero-watermark{
-      position:absolute; inset:auto auto 28px 28px; width:min(280px,30vw); opacity:.14;
-      filter:drop-shadow(0 0 26px rgba(140,97,255,.24));
+      position:absolute; inset:auto auto 26px 24px; width:min(320px,32vw); opacity:.30;
+      filter:drop-shadow(0 0 24px rgba(140,97,255,.28));
       pointer-events:none;
     }
 
@@ -226,68 +226,54 @@
     }
     .bg-logo-wrap{
       position:relative;
-      width:min(78vw,860px);
-      aspect-ratio:1.15/1;
+      width:min(82vw,960px);
       display:grid;
       place-items:center;
       z-index:3;
+      animation:bgFloat 6.6s ease-in-out infinite;
     }
     .bg-logo-wrap::before{
       content:'';
       position:absolute;
-      inset:8% 0 0;
-      background:radial-gradient(circle at center, rgba(157,124,255,.26), transparent 58%);
-      filter:blur(26px);
+      inset:12% -4% 4%;
+      background:
+        radial-gradient(circle at center, rgba(176,143,255,.34), transparent 54%),
+        radial-gradient(circle at center, rgba(133,96,255,.24), transparent 68%);
+      filter:blur(28px);
       z-index:-1;
+      animation:bgGlow 4.6s ease-in-out infinite;
     }
     .bg-logo-bg{
-      position:absolute;
-      inset:0;
+      position:relative;
       display:grid;
       place-items:center;
-      opacity:.92;
       pointer-events:none;
-      transform:scale(1.02);
+      transform:translateY(-2px);
     }
     .bg-logo-bg img{
-      width:100%;
+      width:min(100%, 900px);
       height:auto;
       object-fit:contain;
-      filter:drop-shadow(0 0 42px rgba(155,120,255,.40));
+      opacity:.98;
+      filter:drop-shadow(0 0 34px rgba(185,155,255,.30));
     }
     .bg-logo-mark{
       position:absolute;
-      width:min(22vw,190px);
-      right:4%;
-      top:6%;
-      opacity:.11;
-      filter:drop-shadow(0 0 18px rgba(170,135,255,.28));
-    }
-    .bg-reveal{
-      position:absolute;
-      inset:12% 6%;
-      display:grid;
-      place-items:center;
+      width:min(30vw,270px);
+      left:2.8%;
+      bottom:2.4%;
+      opacity:.34;
+      filter:drop-shadow(0 0 24px rgba(170,135,255,.26));
       pointer-events:none;
-      z-index:2;
-      --rx:50%;
-      --ry:50%;
     }
-    .bg-reveal span{
-      font-family:'DM Serif Display',serif;
-      font-size:clamp(46px,8vw,120px);
-      line-height:.9;
-      letter-spacing:-.04em;
-      color:#f3ecff;
-      opacity:.85;
-      text-align:center;
-      text-shadow:0 0 26px rgba(188,157,255,.28);
-      -webkit-mask-image:radial-gradient(210px circle at var(--rx) var(--ry), #000 0 35%, rgba(0,0,0,.8) 46%, transparent 74%);
-      mask-image:radial-gradient(210px circle at var(--rx) var(--ry), #000 0 35%, rgba(0,0,0,.8) 46%, transparent 74%);
-      opacity:.0;
-      transition:opacity .22s ease;
+    @keyframes bgFloat{
+      0%,100%{transform:translateY(0) scale(1)}
+      50%{transform:translateY(-10px) scale(1.015)}
     }
-    .bg-reveal.active span{opacity:1}
+    @keyframes bgGlow{
+      0%,100%{opacity:.76; transform:scale(1)}
+      50%{opacity:1; transform:scale(1.04)}
+    }
 
     .links-scene{width:100%; height:100%; display:grid; align-items:center; padding:20px}
     .links-shell{
@@ -399,12 +385,15 @@
       display:grid;
       place-items:center;
       background:
-        linear-gradient(180deg, rgba(4,4,9,.18), rgba(4,4,9,.64)),
-        url('/assets/trade-2.jpg') center/cover no-repeat;
+        linear-gradient(180deg, rgba(4,4,9,.22), rgba(4,4,9,.72)),
+        url('/assets/gate-bg.jpg') center 42%/cover no-repeat;
     }
     .gate-card::before{
       content:''; position:absolute; inset:0;
-      background:radial-gradient(circle at 20% 72%, rgba(255,222,136,.12), transparent 18%),linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.44));
+      background:
+        radial-gradient(circle at 18% 72%, rgba(255,222,136,.12), transparent 18%),
+        linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.56)),
+        linear-gradient(90deg, rgba(0,0,0,.32), rgba(0,0,0,.04) 26%, rgba(0,0,0,.04) 74%, rgba(0,0,0,.32));
       pointer-events:none
     }
     .gate-copy{text-align:center; position:relative; z-index:2; max-width:860px; padding:24px}
@@ -436,7 +425,6 @@
       .card{min-height:172px}
       .scroll-copy{font-size:10px}
       .bg-logo-wrap{width:min(88vw,700px)}
-      .bg-reveal span{font-size:clamp(44px,14vw,90px)}
       .welcome-copy p{font-size:clamp(19px,6vw,34px)}
     }
   </style>
@@ -454,7 +442,7 @@
 
   <nav class="nav" aria-label="Bölüm menüsü">
     <button type="button" data-scene="0" class="active">Berkay</button>
-    <button type="button" data-scene="2">BG23</button>
+    <button type="button" data-scene="2">BG</button>
     <button type="button" data-scene="3">Bağlantılar</button>
     <a href="#gunduzler-gate">GÜNDÜZLER</a>
   </nav>
@@ -481,9 +469,6 @@
           <div class="scene bg23-scene" data-scene="2">
             <div class="bg-scene-inner" data-nosnippet>
               <img class="bg-logo-mark" src="/assets/bg-mark.png" alt="" aria-hidden="true" />
-              <div class="bg-reveal reveal-track" id="bgReveal">
-                <span>BERKAY GÜNDÜZ</span>
-              </div>
               <div class="bg-logo-wrap">
                 <div class="bg-logo-bg">
                   <img src="/assets/bg23-logo.png" alt="BG23 logo" />
