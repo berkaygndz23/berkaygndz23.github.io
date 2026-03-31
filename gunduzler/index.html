@@ -174,7 +174,7 @@
       text-shadow:0 14px 40px rgba(0,0,0,.55);
     }
     .dual-col p{
-      margin:22px 0 0;
+      margin:44px 0 0;
       max-width:420px;
       font-size:clamp(16px,1.6vw,22px);
       line-height:1.62;
@@ -183,22 +183,29 @@
     }
     .dual-label{
       position:absolute;
-      left:0;
-      top:calc(100% + 6px);
-      font-family:'Great Vibes',cursive;
-      font-size:clamp(28px,4vw,52px);
+      left:50%;
+      top:calc(100% + 10px);
+      font-family:'Oswald',sans-serif;
+      font-size:clamp(18px,2.2vw,28px);
       line-height:1;
-      letter-spacing:0;
-      color:#f6edd8;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:rgba(244,236,214,.72);
       opacity:0;
-      text-shadow:0 0 18px rgba(255,224,145,.22);
-      -webkit-mask-image:radial-gradient(170px circle at var(--rx) var(--reflect), #000 0 34%, rgba(0,0,0,.82) 48%, transparent 74%);
-      mask-image:radial-gradient(170px circle at var(--rx) var(--reflect), #000 0 34%, rgba(0,0,0,.82) 48%, transparent 74%);
-      transform:translateY(12px);
+      text-shadow:0 0 14px rgba(255,224,145,.16);
+      -webkit-mask-image:radial-gradient(190px circle at var(--rx) var(--reflect), #000 0 36%, rgba(0,0,0,.86) 52%, transparent 78%);
+      mask-image:radial-gradient(190px circle at var(--rx) var(--reflect), #000 0 36%, rgba(0,0,0,.86) 52%, transparent 78%);
+      transform:translate(-50%,12px);
       transition:opacity .22s ease, transform .22s ease;
       pointer-events:none;
+      white-space:nowrap;
+      text-align:center;
     }
-    .dual-col.reveal-track.is-hover .dual-label{opacity:.92; transform:translateY(0)}
+    .dual-col.reveal-track.is-hover .dual-label{opacity:.84; transform:translate(-50%,0)}
+    .trade-card h2{ text-align:center }
+    .trade-card .dual-copy{ margin-inline:auto }
+    .trade-card p{ margin-left:auto; margin-right:auto }
+
     .dual-middle{
       text-align:center;
       display:grid;
@@ -208,7 +215,7 @@
     }
     .dual-mark{
       width:min(220px,18vw);
-      opacity:.34;
+      opacity:.52;
       filter:drop-shadow(0 0 24px rgba(255,214,110,.18));
     }
     .dual-kicker{
@@ -447,7 +454,7 @@
       .dual-col h2{font-size:clamp(54px,16vw,96px)}
       .story-title h2{font-size:clamp(54px,16vw,100px)}
       .story-title .ghost{font-size:clamp(28px,10vw,46px)}
-      .dual-label{font-size:clamp(28px,10vw,46px)}
+      .dual-label{font-size:clamp(16px,5vw,24px)}
       .gallery-head p{font-size:15px}
       .address-card p{font-size:22px}
       .logo-home span{display:none}
